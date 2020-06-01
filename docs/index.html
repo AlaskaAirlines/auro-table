@@ -13,14 +13,7 @@
       padding-bottom: var(--auro-size-xxxl);
     }
 
-    @media(min-width: 1024px) {
-      main {
-        width: 50%;
-      }
-    }
-
     .wc-wrapper auro-table {
-      display: inline-block;
       margin-bottom: var(--auro-size-md);
       margin-right: var(--auro-size-md);
     }
@@ -44,16 +37,6 @@
       font-family: monospace;
     }
   </style>
-
-  <script>
-    function escapeHTML(str) {
-      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/[']/g, '');
-    }
-
-    var auroTable = [
-      '<auro-table cssClass="testClass">Hello World</auro-table>'
-    ]
-  </script>
 </head>
 
 <body>
@@ -61,21 +44,31 @@
     <h1>auro-table API examples</h1>
     <p>The following examples illustrate the auro-table APIs used within any web app.</p>
     <section class="wc-wrapper">
-      <h3>auro-table: default</h3>
-      <script>
-        for (i = 0; i < auroTable.length; i++) {
-          document.write(auroTable[i])
-        }
-      </script>
-      <div class="codeWrapper margin">
-        <code>
-          <script>
-            for (i = 0; i < auroTable.length; i++) {
-              document.write("<p> ".concat(escapeHTML(auroTable[i]), " </p>"));
-            }
-          </script>
-        </code>
-      </div>
+      <h2>auro-table: no data</h2>
+      <auro-table>Look ma, no data!</auro-table>
+
+      <h2>auro-table: w/nowrap option</h2>
+      <auro-table
+        nowrap
+        columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]'
+        componentData='[
+        {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
+        {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+        {"": "Team meeting", "Wednesday": "10:00am" },
+        {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+      ]'>My morning schedule
+      </auro-table>
+
+      <h2>auro-table: default</h2>
+      <auro-table
+        columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]'
+        componentData='[
+        {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
+        {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+        {"": "Team meeting", "Wednesday": "10:00am" },
+        {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+      ]'>My morning schedule
+      </auro-table>
     </section>
 
   </main>
@@ -87,13 +80,13 @@
 
 
     <!-- for initial build and test only -->
-    <script src="./polyfills.js"></script>
-    <script src="./auro-table__bundled.js"></script>
+    <!-- <script src="./polyfills.js"></script>
+    <script src="./auro-table__bundled.js"></script> -->
 
     <!-- once first build has been released, update with the links below -->
     <!-- Be sure to update the :version number -->
-    <!-- <script src="https://unpkg.com/@alaskaairux/auro-table@:version/dist/polyfills.js"></script>
-    <script src="https://unpkg.com/@alaskaairux/auro-table@:version/dist/auro-table__bundled.js"></script> -->
+    <script src="https://unpkg.com/@alaskaairux/auro-table@1.0.0/dist/polyfills.js"></script>
+    <script src="https://unpkg.com/@alaskaairux/auro-table@1.0.0/dist/auro-table__bundled.js"></script>
   </div>
 </body>
 

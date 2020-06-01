@@ -73,13 +73,14 @@
       <demo-snippet>
         <template>
           <auro-table
+            nowrap
             columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]'
             componentData='[
             {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
             {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
             {"": "Team meeting", "Wednesday": "10:00am" },
             {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
-          ]'>
+          ]'>My morning schedule
           </auro-table>
         </template>
       </demo-snippet>
@@ -87,19 +88,20 @@
       <demo-snippet>
         <template>
           <auro-table
-          columnHeaders='["Container Name", "Dimensions", "Maximum gross weight", "Volume"]'
-          componentData='[
-            {"Container Name": "AYK", "Dimensions": "43\" x 80\" x 57\"", "Maximum gross weight": "1,760 lbs", "Volume": "101 cubic feet" },
-            {"Container Name": "AYF", "Dimensions": "78.9\" x 88\" x 62.5\"", "Maximum gross weight": "2,700 lbs", "Volume": "233 cubic feet" },
-            {"Container Name": "AAA", "Dimensions": "88\" x 125\" x 78.5\"", "Maximum gross weight": "7,350 lbs", "Volume": "400 cubic feet" }
-          ]'>
+            nowrap
+            columnHeaders='["Container Name", "Dimensions", "Maximum gross weight", "Volume"]'
+            componentData='[
+              {"Container Name": "AYK", "Dimensions": "43\" x 80\" x 57\"", "Maximum gross weight": "1,760 lbs", "Volume": "101 cubic feet" },
+              {"Container Name": "AYF", "Dimensions": "78.9\" x 88\" x 62.5\"", "Maximum gross weight": "2,700 lbs", "Volume": "233 cubic feet" },
+              {"Container Name": "AAA", "Dimensions": "88\" x 125\" x 78.5\"", "Maximum gross weight": "7,350 lbs", "Volume": "400 cubic feet" }
+            ]'>
           </auro-table>
         </template>
       </demo-snippet>
 
       <demo-snippet>
         <template>
-          <auro-table></auro-table>
+          <auro-table>Look ma, no data!</auro-table>
         </template>
       </demo-snippet>
     </div>
