@@ -13,8 +13,8 @@ For the most up to date information on UI development browser support, see [docs
 ## Install
 
 [![Build Status](https://img.shields.io/travis/AlaskaAirlines/auro-table.svg?branch=master&style=for-the-badge)](https://travis-ci.org/github/AlaskaAirlines/auro-table)
-[![See it on NPM!](https://img.shields.io/npm/v/@alaskaairux//auro-table.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@alaskaairux//auro-table)
-[![License](https://img.shields.io/npm/l/@alaskaairux/orion-design-tokens.svg?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
+[![See it on NPM!](https://img.shields.io/npm/v/@alaskaairux/auro-table.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@alaskaairux//auro-table)
+[![License](https://img.shields.io/npm/l/@alaskaairux/auro-table.svg?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ```shell
 $ npm i @alaskaairux/auro-table
