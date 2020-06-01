@@ -86,23 +86,22 @@
 
       <demo-snippet>
         <template>
-          <auro-table></auro-table>
+          <auro-table
+          columnHeaders='["Container Name", "Dimensions", "Maximum gross weight", "Volume"]'
+          componentData='[
+            {"Container Name": "AYK", "Dimensions": "43\" x 80\" x 57\"", "Maximum gross weight": "1,760 lbs", "Volume": "101 cubic feet" },
+            {"Container Name": "AYF", "Dimensions": "78.9\" x 88\" x 62.5\"", "Maximum gross weight": "2,700 lbs", "Volume": "233 cubic feet" },
+            {"Container Name": "AAA", "Dimensions": "88\" x 125\" x 78.5\"", "Maximum gross weight": "7,350 lbs", "Volume": "400 cubic feet" }
+          ]'>
+          </auro-table>
         </template>
       </demo-snippet>
 
-      <h2>Element &#60;auro-table&#62;</h2>
-
-      <pre><code>class AuroTable extends LitElement</code></pre>
-
-      <h3>Styling:</h3>
-      <p>Info ...</p>
-
-      <h3>Responsive state:</h3>
-      <p>Info ...</p>
-
-      <h3>Properties:</h3>
-      <code><strong>string:</strong> string</code>
-      <p>Info ...</p>
+      <demo-snippet>
+        <template>
+          <auro-table></auro-table>
+        </template>
+      </demo-snippet>
     </div>
   </body>
 </html>
