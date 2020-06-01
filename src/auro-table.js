@@ -6,6 +6,7 @@
 // ---------------------------------------------------------------------
 
 import { LitElement, html } from "lit-element";
+import { classMap } from 'lit-html/directives/class-map';
 
 // Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
@@ -20,8 +21,9 @@ class AuroTable extends LitElement {
   // function to define props used within the scope of thie component
   static get properties() {
     return {
-      columnHeaders: { type: Array},
-      componentData: { type: Array }
+      columnHeaders:  { type: Array},
+      componentData:  { type: Array },
+      nowrap:         { type: Boolean }
     };
   }
 
@@ -42,6 +44,10 @@ class AuroTable extends LitElement {
 
   // function that renders the HTML and CSS into  the scope of the component
   render() {
+    const classes = {
+      'nowrap': this.nowrap,
+    }
+
     if (this.columnHeaders && this.componentData) {
       return html`
         ${styleCss}
@@ -54,7 +60,7 @@ class AuroTable extends LitElement {
               `)}
             </tr>
           </thead>
-          <tbody>
+          <tbody class="${classMap(classes)}">
             ${this.extractRows(this.columnHeaders, this.componentData).map((row) => html`
               <tr>
                 ${row.map((data) => html`
@@ -68,7 +74,7 @@ class AuroTable extends LitElement {
     }
 
     return html`
-      <p>Sorry, there is no table data</p>
+      <slot></slot>
     `;
   }
 }

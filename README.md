@@ -46,6 +46,7 @@ import "@alaskaairux/auro-table";
 
 ```html
 <auro-table
+  nowrap
   columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]'
   componentData='[
   {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
@@ -87,20 +88,23 @@ The `<auro-table>` element should be used in situations where users may:
 |----|----|----|
 | columnHeaders | array | An array of strings that are the keys to the column data. eg.`["Key1","Key2"]` |
 | componentData | array | An array of Key/Value pair objects where they keys match an element in the columnHeader attribute. eg. `[{"Key1":"Value1", "Key2":"Value2"}` ] |
+| nowrap | boolean | Sets content within the `<tbody>` to not wrap |
+| `<slot>` | string | Component will display string if data is not loaded, or data description wanted for SEO
 
 ## API Code Examples
 
-Default auro-table
+Default auro-table w/nowrap option
 
 ```html
 <auro-table
+  nowrap
   columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]'
   componentData='[
   {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
   {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
   {"": "Team meeting", "Wednesday": "10:00am" },
   {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
-]'>
+]'>My weekly schedule
 </auro-table>
 ```
 
@@ -111,7 +115,7 @@ componentData='[
   {"Container Name": "AYK", "Dimensions": "43\" x 80\" x 57\"", "Maximum gross weight": "1,760 lbs", "Volume": "101 cubic feet" },
   {"Container Name": "AYF", "Dimensions": "78.9\" x 88\" x 62.5\"", "Maximum gross weight": "2,700 lbs", "Volume": "233 cubic feet" },
   {"Container Name": "AAA", "Dimensions": "88\" x 125\" x 78.5\"", "Maximum gross weight": "7,350 lbs", "Volume": "400 cubic feet" }
-]'>
+]'>Shipping container information
 </auro-table>
 ```
 

@@ -26,10 +26,9 @@
 table {
   overflow: scroll;
   width: 100%;
-  border-spacing: 5px;
+  border-spacing: var(--auro-size-xs);
   margin-bottom: var(--auro-size-xl);
   font-weight: var(--auro-text-heading-display-weight);
-
 
   tr {
     &:nth-child(even) {
@@ -54,5 +53,9 @@ thead {
 }
 
 th, td {
-  padding: 15px;
+  padding: var(--auro-size-md);
+}
+
+.nowrap {
+  white-space: nowrap;
 }
