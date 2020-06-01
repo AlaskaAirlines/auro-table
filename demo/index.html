@@ -62,7 +62,22 @@
 
       <demo-snippet>
         <template>
-          <auro-table cssClass="testClass">Hello World!</auro-table>
+          <auro-table columnHeaders='["key1","key2","key3"]'
+            componentData='[
+            { "key1": "value1", "key2": "value2", "key3": "value3" },
+            { "key1": "value1a", "key3": "value3a" }
+          ]'></auro-table>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <auro-table columnHeaders='["key1","key2","key3"]'
+            componentData='[
+            { "key1": "value1", "key3": "value3" },
+            { "key1": "value1a", "key2": "value2", "key3": "value3a" },
+            { "key2": "value2b", "key3": "value3" }
+          ]'></auro-table>
         </template>
       </demo-snippet>
 

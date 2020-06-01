@@ -18,15 +18,40 @@
 // layout styles - define any layout specifications for UI that is contained WITHIN the component
 // never define layout that would cause effect on element ouside the scope of this component
 
+table {
+  overflow: scroll;
+  width: auto;
+  border-spacing: 5px;
+  margin-bottom: var(--auro-size-xl);
+  font-weight: 200;
+  display: block;
 
-// component shape styles
-// .auro-table {
-//   ...
-// }
+  tr {
+    &:nth-child(even) {
+      background-color: var(--auro-color-base-gray-100);
+    }
+  }
 
-.testClass {
-  color:  var(--auro-color-border-error-on-light);
-  border: 1px solid var(--auro-color-border-error-on-light);
-  display: inline-block;
-  padding: var(--auro-text-body-size-default);
+  th {
+    text-align: left;
+    background-color: var(--auro-color-base-gray-100);
+  }
+
+  @include auro_breakpoint--sm {
+    width: 100%;
+    display: table;
+  }
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  border-bottom: 1px solid var(--auro-color-base-gray-200);
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 15px;
 }

@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-debugger */
 // Copyright (c) 2020 Alaska Airlines. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 
@@ -18,19 +20,54 @@ class AuroTable extends LitElement {
   // function to define props used within the scope of thie component
   static get properties() {
     return {
-      cssClass:   { type: String }
+      columnHeaders: { type: Array},
+      componentData: { type: Array }
     };
+  }
+
+  extractRows(columns, data) {
+    const rows = [];
+
+    data.forEach((index) => {
+      const row = [];
+
+      columns.forEach((column) => {
+        row.push(index[column]);
+      })
+      rows.push(row);
+    })
+
+    return rows;
   }
 
   // function that renders the HTML and CSS into  the scope of the component
   render() {
-    return html`
-      ${styleCss}
+    if (this.columnHeaders && this.componentData) {
+      return html`
+        ${styleCss}
 
-      <div class=${this.cssClass}>
-        <slot></slot>
-      </div>
-    `;
+        <table>
+          <thead>
+            <tr>
+              ${this.columnHeaders.map((header) => html`
+                <th>${header}</th>
+              `)}
+            </tr>
+          </thead>
+          <tbody>
+            ${this.extractRows(this.columnHeaders, this.componentData).map((row) => html`
+              <tr>
+                ${row.map((data) => html`
+                  <td>${data}</td>
+                `)}
+              </tr>
+            `)}
+          </tbody>
+        </table>
+      `;
+    }
+
+    return html``;
   }
 }
 
