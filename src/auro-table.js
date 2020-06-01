@@ -67,7 +67,9 @@ class AuroTable extends LitElement {
       `;
     }
 
-    return html``;
+    return html`
+      <p>Sorry, there is no table data</p>
+    `;
   }
 }
 
