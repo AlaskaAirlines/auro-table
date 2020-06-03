@@ -1,4 +1,4 @@
-## Table API
+# Table API
 
 | Attribute | Value type | Description |
 |----|----|----|
