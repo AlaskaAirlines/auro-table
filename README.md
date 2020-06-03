@@ -1,4 +1,4 @@
-## Element auro-table
+# Auro Table
 
 `<auro-table>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of displaying tabular data.
 
@@ -81,15 +81,6 @@ The `polyfills.js` is packaged with this component, but **IT IS NOT NEEDED** to 
 The `<auro-table>` element should be used in situations where users may:
 
 * need to a basic way to display data in a tabular format
-
-## Properties:
-
-| Attribute | Value type | Description |
-|----|----|----|
-| columnHeaders | array | An array of strings that are the keys to the column data. eg.`["Key1","Key2"]` |
-| componentData | array | An array of Key/Value pair objects where they keys match an element in the columnHeader attribute. eg. `[{"Key1":"Value1", "Key2":"Value2"}` ] |
-| nowrap | boolean | Sets content within the `<tbody>` to not wrap |
-| `<slot>` | string | Component will display string if data is not loaded, or data description wanted for SEO
 
 ## API Code Examples
 
