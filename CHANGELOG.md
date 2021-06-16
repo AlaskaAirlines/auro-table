@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+## [1.0.1](https://github.com/AlaskaAirlines/auro-table/compare/v1.0.0...v1.0.1) (2021-06-16)
+
+
+### Bug Fixes
+
+* **deps:** security updates ([091a438](https://github.com/AlaskaAirlines/auro-table/commit/091a4384638dbba16d37b88fc8378826437629d6))
+* **semantic-release:** set specific build version ([00c1e89](https://github.com/AlaskaAirlines/auro-table/commit/00c1e89378fb13281ebf8d7125b7520c5d41221c))
+
 # 1.0.0 (2020-06-01)
 
 
