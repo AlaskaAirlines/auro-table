@@ -14,9 +14,10 @@ import styleCss from "./style-css.js";
 
 // build the component class
 class AuroTable extends LitElement {
-  // constructor() {
-  //   super();
-  // }
+  constructor() {
+    super();
+    this.nowrap = false;
+  }
 
   // function to define props used within the scope of thie component
   static get properties() {
