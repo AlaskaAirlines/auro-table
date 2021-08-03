@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.2](https://github.com/AlaskaAirlines/auro-table/compare/v1.0.1...v1.0.2) (2021-08-03)
+
+
+### Bug Fixes
+
+* default nowrap to false [#22](https://github.com/AlaskaAirlines/auro-table/issues/22) ([5b0324f](https://github.com/AlaskaAirlines/auro-table/commit/5b0324fb47f60013cfa706b6825e5e15caeefa3a))
+
 ## [1.0.1](https://github.com/AlaskaAirlines/auro-table/compare/v1.0.0...v1.0.1) (2021-06-16)
 
 
