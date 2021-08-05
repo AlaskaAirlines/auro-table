@@ -110,6 +110,11 @@ componentData='[
 </auro-table>
 ```
 
+## Figma design resource
+
+[auro-table figma blueprint](https://www.figma.com/file/7NzNTRt3MFSFo3kwa6lcD0/Table?node-id=447%3A2620)<br>
+Internal links to design resources require licensed access.
+
 ## Development
 
 In order to develop against this project, if you are not part of the core team, you will be required to fork the project prior to submitting a pull request.
