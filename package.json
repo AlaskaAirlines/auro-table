@@ -75,7 +75,7 @@
     "wc-sass-render": "^1.2.3",
     "webpack": "^5.39.0",
     "webpack-bundle-analyzer": "^3.9.0",
-    "webpack-cli": "^3.3.12",
+    "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^4.2.2"
   },
