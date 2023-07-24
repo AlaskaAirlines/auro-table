@@ -6,14 +6,13 @@
 // ---------------------------------------------------------------------
 
 import { LitElement, html } from "lit-element";
-import { classMap } from 'lit-html/directives/class-map';
+import { classMap } from 'lit/directives/class-map.js';
 
 // Import touch detection lib
-import "focus-visible/dist/focus-visible.min.js";
 import styleCss from "./style-css.js";
 
 // build the component class
-class AuroTable extends LitElement {
+export class AuroTable extends LitElement {
   constructor() {
     super();
     this.nowrap = false;
@@ -28,6 +27,16 @@ class AuroTable extends LitElement {
     };
   }
 
+  static get styles() {
+    return [styleCss];
+  }
+
+  /**
+   * @private
+   * @param { Array } columns - Titles for column headers.
+   * @param { Array } data - TD content.
+   * @returns { void }
+   */
   extractRows(columns, data) {
     const rows = [];
 
@@ -36,9 +45,10 @@ class AuroTable extends LitElement {
 
       columns.forEach((column) => {
         row.push(index[column]);
-      })
+      });
+
       rows.push(row);
-    })
+    });
 
     return rows;
   }
@@ -47,12 +57,10 @@ class AuroTable extends LitElement {
   render() {
     const classes = {
       'nowrap': this.nowrap,
-    }
+    };
 
     if (this.columnHeaders && this.componentData) {
       return html`
-        ${styleCss}
-
         <table>
           <thead>
             <tr>
@@ -74,9 +82,7 @@ class AuroTable extends LitElement {
       `;
     }
 
-    return html`
-      <slot></slot>
-    `;
+    return html``;
   }
 }
 
