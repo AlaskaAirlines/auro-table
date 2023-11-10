@@ -4,11 +4,11 @@
 // ---------------------------------------------------------------------
 
 // Import Auro tokens
-@import "./../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables";
-@import "./../node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties";
+@import "./../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables";
+@import "./../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SassCustomProperties";
 
-@import "./../node_modules/@aurodesignsystem/webcorestylesheets/dist/breakpoints";
-@import "./../node_modules/@aurodesignsystem/webcorestylesheets/dist/core";
+@import "./../node_modules/@aurodesignsystem/webcorestylesheets/src/breakpoints";
+@import "./../node_modules/@aurodesignsystem/webcorestylesheets/src/core";
 
 // container styles - defines the look of the outer custom componet
 :host {
@@ -26,29 +26,29 @@
 table {
   overflow: scroll;
   width: 100%;
-  margin-bottom: var(--auro-size-xl);
+  margin-bottom: var(--ds-size-400, $ds-size-400);
   border-collapse: collapse;
-  border-spacing: var(--auro-size-xs);
-  font-weight: var(--auro-text-heading-display-weight);
+  border-spacing: var(--ds-size-100, $ds-size-100);
+  font-weight: var(--ds-text-heading-display-weight, $ds-text-heading-display-weight);
 }
 
 thead {
-  border-bottom: 1px solid var(--auro-color-base-gray-200);
+  border-bottom: 1px solid var(--ds-color-brand-gray-200, $ds-color-brand-gray-200);
   border-collapse: collapse;
 }
 
 tr {
   &:nth-child(even) {
-    background-color: var(--auro-color-base-gray-100);
+    background-color: var(--ds-color-brand-gray-100, $ds-color-brand-gray-100);
   }
 }
 
 th, td {
-  padding: var(--auro-size-md);
+  padding: var(--ds-size-200, $ds-size-200);
 }
 
 th {
-  font-weight: var(--auro-text-heading-default-weight);
+  font-weight: var(--ds-text-heading-default-weight, $ds-text-heading-default-weight);
   text-align: left;
 }
 
