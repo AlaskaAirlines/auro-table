@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.0.1](https://github.com/AlaskaAirlines/auro-table/compare/v2.0.0...v2.0.1) (2023-11-13)
+
+
+### Performance Improvements
+
+* **token:** update token per new theming [#74](https://github.com/AlaskaAirlines/auro-table/issues/74) ([60531a5](https://github.com/AlaskaAirlines/auro-table/commit/60531a58c22c395908dd9e3072f6233f6c12c5df))
+
 # [2.0.0](https://github.com/AlaskaAirlines/auro-table/compare/v1.0.2...v2.0.0) (2023-07-26)
 
 
