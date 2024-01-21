@@ -1,5 +1,17 @@
 # Semantic Release Automated Changelog
 
+# [2.1.0](https://github.com/AlaskaAirlines/auro-table/compare/v2.0.1...v2.1.0) (2024-01-21)
+
+
+### Features
+
+* add suport for SSR projects [#76](https://github.com/AlaskaAirlines/auro-table/issues/76) ([51946fe](https://github.com/AlaskaAirlines/auro-table/commit/51946fe3f51ff73161e1f05c8e324a8df2797b3a))
+
+
+### Performance Improvements
+
+* update to support node policy ([714e168](https://github.com/AlaskaAirlines/auro-table/commit/714e168186d0b77bc006c767a5a75dbc4efb1721))
+
 ## [2.0.1](https://github.com/AlaskaAirlines/auro-table/compare/v2.0.0...v2.0.1) (2023-11-13)
 
 
