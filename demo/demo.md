@@ -36,7 +36,7 @@ The `<auro-table>` element should be used in situations where users may:
   </auro-table>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
@@ -107,7 +107,7 @@ There are two important parts of every Auro component. The <a href="https://deve
 To protect from versioning conflicts with other instances of the component being loaded, it is recommended to use our `registerComponent(name)` method and pass in a unique name.
 
 ```js
-import './node_modules/@alaskaairux/auro-table';
+import './node_modules/@aurodesignsystem/auro-table';
 registerComponent('custom-table');
 ```
 
@@ -127,7 +127,7 @@ This will create a new custom element that you can use in your HTML that will fu
   </custom-table>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/customTable.html) -->
 <!-- The below code snippet is automatically added from ./../../apiExamples/customTable.html -->
