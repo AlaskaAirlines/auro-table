@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.1.1](https://github.com/AlaskaAirlines/auro-table/compare/v2.1.0...v2.1.1) (2024-01-31)
+
+
+### Performance Improvements
+
+* alaskaairux ref updates ([2c8181c](https://github.com/AlaskaAirlines/auro-table/commit/2c8181c1bfb24ba4288224e810829f2d7a9991d9))
+
 # [2.1.0](https://github.com/AlaskaAirlines/auro-table/compare/v2.0.1...v2.1.0) (2024-01-21)
 
 
