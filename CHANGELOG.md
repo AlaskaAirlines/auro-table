@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.1.3](https://github.com/AlaskaAirlines/auro-table/compare/v2.1.2...v2.1.3) (2024-02-13)
+
+
+### Bug Fixes
+
+* update js ref from index ([866c067](https://github.com/AlaskaAirlines/auro-table/commit/866c067d48ecf8df64ff7a67c4dbc673773a527b))
+
 ## [2.1.2](https://github.com/AlaskaAirlines/auro-table/compare/v2.1.1...v2.1.2) (2024-02-13)
 
 
