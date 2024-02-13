@@ -1,4 +1,4 @@
-import { AuroTable } from './src/auro-table';
+import { AuroTable } from './src/auro-table.js';
 
 /**
  * Register Custom Element.
