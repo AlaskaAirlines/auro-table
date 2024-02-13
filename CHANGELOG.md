@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.1.2](https://github.com/AlaskaAirlines/auro-table/compare/v2.1.1...v2.1.2) (2024-02-13)
+
+
+### Performance Improvements
+
+* update auro deps and add ESM badge ([cb9cba8](https://github.com/AlaskaAirlines/auro-table/commit/cb9cba8105b9f7a6600472c898015e6285b288d3))
+
 ## [2.1.1](https://github.com/AlaskaAirlines/auro-table/compare/v2.1.0...v2.1.1) (2024-01-31)
 
 
