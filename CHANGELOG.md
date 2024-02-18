@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.1.4](https://github.com/AlaskaAirlines/auro-table/compare/v2.1.3...v2.1.4) (2024-02-18)
+
+
+### Performance Improvements
+
+* **docs:** rename apiExamples.md to use standard name ([080b701](https://github.com/AlaskaAirlines/auro-table/commit/080b70121d17409ee3b7b7ad51f83a28c7be819d))
+
 ## [2.1.3](https://github.com/AlaskaAirlines/auro-table/compare/v2.1.2...v2.1.3) (2024-02-13)
 
 
