@@ -16,22 +16,20 @@
 
 ### Basic
 
-<div class="twoColDemoRow">
-  <div>
-    <div class="exampleWrapper">
-      <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
-      <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
-      <auro-table
-        columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]'
-        componentData='[
-        {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
-        {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-        {"": "Team meeting", "Wednesday": "10:00am" },
-        {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
-        ]'>My morning schedule
-      </auro-table>
-      <!-- AURO-GENERATED-CONTENT:END -->
-    </div>
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
+  <auro-table
+    columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]'
+    componentData='[
+    {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
+    {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+    {"": "Team meeting", "Wednesday": "10:00am" },
+    {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+    ]'>My morning schedule
+  </auro-table>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
