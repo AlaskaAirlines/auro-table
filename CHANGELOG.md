@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.1.5](https://github.com/AlaskaAirlines/auro-table/compare/v2.1.4...v2.1.5) (2024-02-19)
+
+
+### Performance Improvements
+
+* **docs:** fix broken API page) ([d3b6347](https://github.com/AlaskaAirlines/auro-table/commit/d3b634713f4ce29956f1aec833fff995aec489d7))
+
 ## [2.1.4](https://github.com/AlaskaAirlines/auro-table/compare/v2.1.3...v2.1.4) (2024-02-18)
 
 
