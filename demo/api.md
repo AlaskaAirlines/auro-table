@@ -66,3 +66,20 @@ The `componentData` attribute is used to provide the table TD content for the ta
 The `nowrap` attribute, when applied, will prevent table content from word wrapping, i.e. all text content will be on a single line.
 
 </auro-accordion>
+
+## Theme Support
+
+The component may be restyled using the following code sample and changing the values of the following token(s).
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../src/tokens.scss) -->
+<!-- The below code snippet is automatically added from ./../../src/tokens.scss -->
+
+```scss
+@import "./../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables";
+
+:host {
+  --ds-auro-table-alt-row-container-color: var(--ds-color-container-secondary-default, #{$ds-color-container-secondary-default});
+  --ds-auro-table-border-color: var(--ds-color-border-divider-default, #{$ds-color-border-divider-default});
+}
+```
+<!-- AURO-GENERATED-CONTENT:END -->

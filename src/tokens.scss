@@ -1,0 +1,6 @@
+@import "./../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables";
+
+:host {
+  --ds-auro-table-alt-row-container-color: var(--ds-color-container-secondary-default, #{$ds-color-container-secondary-default});
+  --ds-auro-table-border-color: var(--ds-color-border-divider-default, #{$ds-color-border-divider-default});
+}

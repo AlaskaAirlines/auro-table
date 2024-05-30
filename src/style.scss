@@ -33,13 +33,13 @@ table {
 }
 
 thead {
-  border-bottom: 1px solid var(--ds-color-brand-gray-200, $ds-color-brand-gray-200);
+  border-bottom: 1px solid var(--ds-auro-table-border-color);
   border-collapse: collapse;
 }
 
 tr {
   &:nth-child(even) {
-    background-color: var(--ds-color-brand-gray-100, $ds-color-brand-gray-100);
+    background-color: var(--ds-auro-table-alt-row-container-color);
   }
 }
 
