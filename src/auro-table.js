@@ -8,8 +8,8 @@
 import { LitElement, html } from "lit-element";
 import { classMap } from 'lit/directives/class-map.js';
 
-// Import touch detection lib
 import styleCss from "./style-css.js";
+import tokensCss from "./tokens-css.js";
 
 // build the component class
 export class AuroTable extends LitElement {
@@ -28,7 +28,10 @@ export class AuroTable extends LitElement {
   }
 
   static get styles() {
-    return [styleCss];
+    return [
+      styleCss,
+      tokensCss
+    ];
   }
 
   /**
