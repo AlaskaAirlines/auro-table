@@ -6,6 +6,8 @@
 import { LitElement, html } from "lit-element";
 import { classMap } from 'lit/directives/class-map.js';
 
+import AuroLibraryRuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
+
 import styleCss from "./style-css.js";
 import tokensCss from "./tokens-css.js";
 
@@ -13,7 +15,13 @@ import tokensCss from "./tokens-css.js";
 export class AuroTable extends LitElement {
   constructor() {
     super();
+
     this.nowrap = false;
+
+    /**
+     * @private
+     */
+    this.runtimeUtils = new AuroLibraryRuntimeUtils();
   }
 
   // function to define props used within the scope of thie component
@@ -30,6 +38,11 @@ export class AuroTable extends LitElement {
       styleCss,
       tokensCss
     ];
+  }
+
+  firstUpdated() {
+    // Add the tag name as an attribute if it is different than the component name
+    this.runtimeUtils.handleComponentTagRename(this, 'auro-table');
   }
 
   /**
