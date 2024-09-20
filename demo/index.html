@@ -42,8 +42,10 @@
     </script>
     <script type="module" src="../index.js" data-demo-script="true"></script>
     <script type="module">
-      import {registerComponent} from '../index.js';
-      registerComponent('custom-table');
+      import { AuroTable } from './src/auro-table.js';
+      import * as RuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
+
+      RuntimeUtils.default.prototype.registerComponent('custom-table', AuroTable);
     </script>
 
     <!-- If additional elements are needed for the demo, add them here. -->
