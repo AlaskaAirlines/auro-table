@@ -3,7 +3,7 @@
 
 // ---------------------------------------------------------------------
 
-import { LitElement, html } from "lit-element";
+import { LitElement, html } from "lit";
 import { classMap } from 'lit/directives/class-map.js';
 
 import AuroLibraryRuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
@@ -27,7 +27,7 @@ export class AuroTable extends LitElement {
   // function to define props used within the scope of thie component
   static get properties() {
     return {
-      columnHeaders:  { type: Array},
+      columnHeaders:  { type: Array },
       componentData:  { type: Array },
       nowrap:         { type: Boolean }
     };
