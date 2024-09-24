@@ -1,17 +1,5 @@
 # Semantic Release Automated Changelog
 
-# [3.0.0-beta.1](https://github.com/AlaskaAirlines/auro-table/compare/v2.2.0-beta.2...v3.0.0-beta.1) (2024-09-24)
-
-
-### Performance Improvements
-
-* update dependencies ([8d6b25a](https://github.com/AlaskaAirlines/auro-table/commit/8d6b25a3056578dfbfbca6354f9408e85f07119d))
-
-
-### BREAKING CHANGES
-
-* trigger major release for color theme support #82
-
 ## [2.1.5](https://github.com/AlaskaAirlines/auro-table/compare/v2.1.4...v2.1.5) (2024-02-19)
 
 
