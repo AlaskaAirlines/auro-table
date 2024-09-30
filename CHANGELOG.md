@@ -1,5 +1,25 @@
 # Semantic Release Automated Changelog
 
+# [3.0.0](https://github.com/AlaskaAirlines/auro-table/compare/v2.1.5...v3.0.0) (2024-09-30)
+
+
+### Features
+
+* add tag name as attribute when custom registered ([7ab1b88](https://github.com/AlaskaAirlines/auro-table/commit/7ab1b88f34cb8bbb70d63e7ffd685dcbeca0f6ce))
+* refactor color token structure with tier 3 tokens [#82](https://github.com/AlaskaAirlines/auro-table/issues/82) ([0a2da91](https://github.com/AlaskaAirlines/auro-table/commit/0a2da9107a731a7a0c126cb869d084665306b8e8))
+
+
+### Performance Improvements
+
+* refactor custom component registration config ([c10f874](https://github.com/AlaskaAirlines/auro-table/commit/c10f874255b79c0fbb04cadaac0fa789b6ab7f01))
+* update build configurations and dependencies ([a60adc8](https://github.com/AlaskaAirlines/auro-table/commit/a60adc83728825d8aa59c38e45edc5507e2c32f7))
+* update dependencies ([ca7deb5](https://github.com/AlaskaAirlines/auro-table/commit/ca7deb54a980ebafaa0d9258cb14a17e70bed4f3))
+
+
+### BREAKING CHANGES
+
+* trigger major release for color theme support #82
+
 ## [2.1.5](https://github.com/AlaskaAirlines/auro-table/compare/v2.1.4...v2.1.5) (2024-02-19)
 
 
