@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.0.1](https://github.com/AlaskaAirlines/auro-table/compare/v3.0.0...v3.0.1) (2024-10-09)
+
+
+### Bug Fixes
+
+* make auro-library a normal dep instead of devDep ([c0d29ad](https://github.com/AlaskaAirlines/auro-table/commit/c0d29ad37af639964544b2502a5f68459af02b44))
+
 # [3.0.0](https://github.com/AlaskaAirlines/auro-table/compare/v2.1.5...v3.0.0) (2024-09-30)
 
 
