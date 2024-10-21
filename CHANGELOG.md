@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [3.1.0](https://github.com/AlaskaAirlines/auro-table/compare/v3.0.1...v3.1.0) (2024-10-21)
+
+
+### Features
+
+* **api:** add register static method [#92](https://github.com/AlaskaAirlines/auro-table/issues/92) ([96d0069](https://github.com/AlaskaAirlines/auro-table/commit/96d00699534ebd2fbc4043dd2e3b0445c74653db))
+
 ## [3.0.1](https://github.com/AlaskaAirlines/auro-table/compare/v3.0.0...v3.0.1) (2024-10-09)
 
 
