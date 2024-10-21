@@ -40,6 +40,18 @@ export class AuroTable extends LitElement {
     ];
   }
 
+  /**
+   * This will register this element with the browser.
+   * @param {string} [name="auro-table"] - The name of element that you want to register to.
+   *
+   * @example
+   * AuroTable.register("custom-table") // this will register this element to <custom-table/>
+   *
+   */
+  static register(name = "auro-table") {
+    AuroLibraryRuntimeUtils.prototype.registerComponent(name, AuroTable);
+  }
+
   firstUpdated() {
     // Add the tag name as an attribute if it is different than the component name
     this.runtimeUtils.handleComponentTagRename(this, 'auro-table');
@@ -98,10 +110,4 @@ export class AuroTable extends LitElement {
 
     return html``;
   }
-}
-
-/* istanbul ignore else */
-// define the name of the custom component
-if (!customElements.get("auro-table")) {
-  customElements.define("auro-table", AuroTable);
 }

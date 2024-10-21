@@ -3,7 +3,7 @@
 /* eslint-disable one-var */
 /* eslint-disable no-undef */
 import { fixture, html, expect } from '@open-wc/testing';
-import '../src/auro-table.js';
+import '../index.js';
 
 describe('auro-table', () => {
   it('tests the table renders two rows with 3 columns', async () => {
