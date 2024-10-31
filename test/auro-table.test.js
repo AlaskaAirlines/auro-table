@@ -16,8 +16,8 @@ describe('auro-table', () => {
     `);
 
     const table = el.shadowRoot.querySelector('table');
-    const columns = table.querySelectorAll('th');
     const rows = table.querySelectorAll('tr');
+    const columns = rows[1].querySelectorAll('td');
 
     expect(columns.length).to.equal(3);
     expect(rows.length).to.equal(3);
@@ -33,7 +33,8 @@ describe('auro-table', () => {
     `);
 
     const table = el.shadowRoot.querySelector('table');
-    const columns = table.querySelectorAll('th');
+    const rows = table.querySelectorAll('tr');
+    const columns = rows[1].querySelectorAll('td');
     const details = table.querySelectorAll('td');
 
     expect(columns.length).to.equal(3);
@@ -50,7 +51,8 @@ describe('auro-table', () => {
     `);
 
     const table = el.shadowRoot.querySelector('table');
-    const columns = table.querySelectorAll('th');
+    const rows = table.querySelectorAll('tr');
+    const columns = rows[1].querySelectorAll('td');
     const details = table.querySelectorAll('td');
 
     expect(columns.length).to.equal(3);
