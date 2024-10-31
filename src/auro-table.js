@@ -90,7 +90,7 @@ export class AuroTable extends LitElement {
         <table>
           <thead>
             <tr>
-              ${this.columnHeaders.map((header) => html`
+              ${this.columnHeaders.forEach((header) => html`
                 <th>${header}</th>
               `)}
             </tr>
