@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.1.1](https://github.com/AlaskaAirlines/auro-table/compare/v3.1.0...v3.1.1) (2024-10-31)
+
+
+### Bug Fixes
+
+* remove .map function that doesn't work in SSR support [#94](https://github.com/AlaskaAirlines/auro-table/issues/94) ([ce1d30e](https://github.com/AlaskaAirlines/auro-table/commit/ce1d30ed73ad8f3f87366302c3e139211ad5def6))
+
 # [3.1.0](https://github.com/AlaskaAirlines/auro-table/compare/v3.0.1...v3.1.0) (2024-10-21)
 
 
