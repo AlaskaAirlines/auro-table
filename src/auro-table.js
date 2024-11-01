@@ -52,9 +52,32 @@ export class AuroTable extends LitElement {
     AuroLibraryRuntimeUtils.prototype.registerComponent(name, AuroTable);
   }
 
+  updated(changedProperties) {
+    if (changedProperties.has('columnHeaders')) {
+      this.extractHeaders();
+    }
+  }
+
   firstUpdated() {
     // Add the tag name as an attribute if it is different than the component name
     this.runtimeUtils.handleComponentTagRename(this, 'auro-table');
+  }
+
+  /**
+   * @private
+   * @returns { void }
+   */
+  extractHeaders() {
+    const headerRow = this.shadowRoot.querySelector('thead tr');
+
+    headerRow.innerHTML = '';
+
+    this.columnHeaders.forEach((header) => {
+      const th = document.createElement('th');
+
+      th.innerHTML = header;
+      headerRow.appendChild(th);
+    });
   }
 
   /**
@@ -88,13 +111,7 @@ export class AuroTable extends LitElement {
     if (this.columnHeaders && this.componentData) {
       return html`
         <table>
-          <thead>
-            <tr>
-              ${this.columnHeaders.forEach((header) => html`
-                <th>${header}</th>
-              `)}
-            </tr>
-          </thead>
+          <thead><tr></tr></thead>
           <tbody class="${classMap(classes)}">
             ${this.extractRows(this.columnHeaders, this.componentData).map((row) => html`
               <tr>
