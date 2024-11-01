@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.1.5](https://github.com/AlaskaAirlines/auro-table/compare/v3.1.4...v3.1.5) (2024-11-01)
+
+
+### Performance Improvements
+
+* warap column generator in if ([0a017d1](https://github.com/AlaskaAirlines/auro-table/commit/0a017d1b8585c9b76fed4d932872ec4ac95175e8))
+
 ## [3.1.4](https://github.com/AlaskaAirlines/auro-table/compare/v3.1.3...v3.1.4) (2024-11-01)
 
 
