@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.1.3](https://github.com/AlaskaAirlines/auro-table/compare/v3.1.2...v3.1.3) (2024-11-01)
+
+
+### Performance Improvements
+
+* refactor how we render the table rows ([c11249e](https://github.com/AlaskaAirlines/auro-table/commit/c11249e58265ae84ed3b6284756238cd17a2b301))
+
 ## [3.1.2](https://github.com/AlaskaAirlines/auro-table/compare/v3.1.1...v3.1.2) (2024-11-01)
 
 
