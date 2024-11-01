@@ -72,16 +72,18 @@ export class AuroTable extends LitElement {
    * @returns { void }
    */
   extractHeaders() {
-    const headerRow = this.shadowRoot.querySelector('thead tr');
+    if (this.columnHeaders) {
+      const headerRow = this.shadowRoot.querySelector('thead tr');
 
-    headerRow.innerHTML = '';
+      headerRow.innerHTML = '';
 
-    this.columnHeaders.forEach((header) => {
-      const th = document.createElement('th');
+      this.columnHeaders.forEach((header) => {
+        const th = document.createElement('th');
 
-      th.innerHTML = header;
-      headerRow.appendChild(th);
-    });
+        th.innerHTML = header;
+        headerRow.appendChild(th);
+      });
+    }
   }
 
   /**
