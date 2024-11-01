@@ -24,7 +24,7 @@ export class AuroTable extends LitElement {
     this.runtimeUtils = new AuroLibraryRuntimeUtils();
   }
 
-  // function to define props used within the scope of thie component
+  // function to define props used within the scope of this component
   static get properties() {
     return {
       columnHeaders:  { type: Array },
@@ -56,6 +56,10 @@ export class AuroTable extends LitElement {
     if (changedProperties.has('columnHeaders')) {
       this.extractHeaders();
     }
+
+    if (changedProperties.has('componentData')) {
+      this.extractRows();
+    }
   }
 
   firstUpdated() {
@@ -82,24 +86,23 @@ export class AuroTable extends LitElement {
 
   /**
    * @private
-   * @param { Array } columns - Titles for column headers.
-   * @param { Array } data - TD content.
    * @returns { void }
    */
-  extractRows(columns, data) {
-    const rows = [];
+  extractRows() {
+    const tableBody = this.shadowRoot.querySelector('tbody');
 
-    data.forEach((index) => {
-      const row = [];
+    this.componentData.forEach((row) => {
+      const tr = document.createElement('tr');
 
-      columns.forEach((column) => {
-        row.push(index[column]);
+      this.columnHeaders.forEach((column) => {
+        const td = document.createElement('td');
+        const content = row[column] || '';
+        td.innerHTML = content;
+        tr.appendChild(td);
       });
 
-      rows.push(row);
+      tableBody.appendChild(tr);
     });
-
-    return rows;
   }
 
   // function that renders the HTML and CSS into  the scope of the component
@@ -108,23 +111,12 @@ export class AuroTable extends LitElement {
       'nowrap': this.nowrap,
     };
 
-    if (this.columnHeaders && this.componentData) {
-      return html`
-        <table>
-          <thead><tr></tr></thead>
-          <tbody class="${classMap(classes)}">
-            ${this.extractRows(this.columnHeaders, this.componentData).map((row) => html`
-              <tr>
-                ${row.map((data) => html`
-                  <td>${data}</td>
-                `)}
-              </tr>
-            `)}
-          </tbody>
-        </table>
-      `;
-    }
-
-    return html``;
+    return html`
+      <table>
+        <thead><tr></tr></thead>
+        <tbody class="${classMap(classes)}">
+        </tbody>
+      </table>
+    `;
   }
 }
