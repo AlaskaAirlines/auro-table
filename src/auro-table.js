@@ -91,18 +91,20 @@ export class AuroTable extends LitElement {
   extractRows() {
     const tableBody = this.shadowRoot.querySelector('tbody');
 
-    this.componentData.forEach((row) => {
-      const tr = document.createElement('tr');
+    if (this.componentData && this.columnHeaders) {
+      this.componentData.forEach((row) => {
+        const tr = document.createElement('tr');
 
-      this.columnHeaders.forEach((column) => {
-        const td = document.createElement('td');
-        const content = row[column] || '';
-        td.innerHTML = content;
-        tr.appendChild(td);
+        this.columnHeaders.forEach((column) => {
+          const td = document.createElement('td');
+          const content = row[column] || '';
+          td.innerHTML = content;
+          tr.appendChild(td);
+        });
+
+        tableBody.appendChild(tr);
       });
-
-      tableBody.appendChild(tr);
-    });
+    }
   }
 
   // function that renders the HTML and CSS into  the scope of the component
