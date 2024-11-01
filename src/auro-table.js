@@ -52,16 +52,6 @@ export class AuroTable extends LitElement {
     AuroLibraryRuntimeUtils.prototype.registerComponent(name, AuroTable);
   }
 
-  updated(changedProperties) {
-    if (changedProperties.has('columnHeaders')) {
-      this.extractHeaders();
-    }
-
-    if (changedProperties.has('componentData')) {
-      this.extractRows();
-    }
-  }
-
   firstUpdated() {
     // Add the tag name as an attribute if it is different than the component name
     this.runtimeUtils.handleComponentTagRename(this, 'auro-table');
@@ -69,44 +59,24 @@ export class AuroTable extends LitElement {
 
   /**
    * @private
+   * @param { Array } columns - Titles for column headers.
+   * @param { Array } data - TD content.
    * @returns { void }
    */
-  extractHeaders() {
-    if (this.columnHeaders) {
-      const headerRow = this.shadowRoot.querySelector('thead tr');
+  extractRows(columns, data) {
+    const rows = [];
 
-      headerRow.innerHTML = '';
+    data.forEach((index) => {
+      const row = [];
 
-      this.columnHeaders.forEach((header) => {
-        const th = document.createElement('th');
-
-        th.innerHTML = header;
-        headerRow.appendChild(th);
+      columns.forEach((column) => {
+        row.push(index[column]);
       });
-    }
-  }
 
-  /**
-   * @private
-   * @returns { void }
-   */
-  extractRows() {
-    const tableBody = this.shadowRoot.querySelector('tbody');
+      rows.push(row);
+    });
 
-    if (this.componentData && this.columnHeaders) {
-      this.componentData.forEach((row) => {
-        const tr = document.createElement('tr');
-
-        this.columnHeaders.forEach((column) => {
-          const td = document.createElement('td');
-          const content = row[column] || '';
-          td.innerHTML = content;
-          tr.appendChild(td);
-        });
-
-        tableBody.appendChild(tr);
-      });
-    }
+    return rows;
   }
 
   // function that renders the HTML and CSS into  the scope of the component
@@ -115,12 +85,29 @@ export class AuroTable extends LitElement {
       'nowrap': this.nowrap,
     };
 
-    return html`
-      <table>
-        <thead><tr></tr></thead>
-        <tbody class="${classMap(classes)}">
-        </tbody>
-      </table>
-    `;
+    if (this.columnHeaders && this.componentData) {
+      return html`
+        <table>
+          <thead>
+            <tr>
+              ${this.columnHeaders.map((header) => html`
+                <th>${header}</th>
+              `)}
+            </tr>
+          </thead>
+          <tbody class="${classMap(classes)}">
+            ${this.extractRows(this.columnHeaders, this.componentData).map((row) => html`
+              <tr>
+                ${row.map((data) => html`
+                  <td>${data}</td>
+                `)}
+              </tr>
+            `)}
+          </tbody>
+        </table>
+      `;
+    }
+
+    return html``;
   }
 }
