@@ -115,7 +115,7 @@ In cases where the project is not able to process JS assets, there are pre-proce
 <!-- The below content is automatically added from ./docs/partials/useCases.md -->
 The `<auro-table>` element should be used in situations where users may:
 
-* Show static tabluar data
+* Show static tabular data
 <!-- AURO-GENERATED-CONTENT:END -->
 
 ## API Code Examples

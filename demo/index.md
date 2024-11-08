@@ -17,7 +17,7 @@ Use the `auro-table` custom element to illustrate non-dynamic tabular data. The 
 <!-- The below content is automatically added from ../docs/partials/useCases.md -->
 The `<auro-table>` element should be used in situations where users may:
 
-* Show static tabluar data
+* Show static tabular data
 <!-- AURO-GENERATED-CONTENT:END -->
 
 ## Example(s)

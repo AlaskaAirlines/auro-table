@@ -21,7 +21,7 @@
 
 #### columnHeaders
 
-The `columnHeaders` attribute is used to provide the column header content for the the table.
+The `columnHeaders` attribute is used to provide the column header content for the table.
 
 </auro-accordion>
 
