@@ -1,20 +1,20 @@
 <!--
 The index.md file is a compiled document. No edits should be made directly to this file.
 README.md is created by running `npm run build:docs`.
-This file is generated based on a template fetched from `./docs/partials/index.md`
+This file is generated based on a template fetched from `../docs/partials/index.md`
 -->
 
 # Table
 
-<!-- AURO-GENERATED-CONTENT:START (FILE:src=./description.md) -->
-<!-- The below content is automatically added from ./description.md -->
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=../docs/partials/description.md) -->
+<!-- The below content is automatically added from ../docs/partials/description.md -->
 Use the `auro-table` custom element to illustrate non-dynamic tabular data. The auro-table element is responsive, with a flexible layout and an easy-to-use JSON API.
 <!-- AURO-GENERATED-CONTENT:END -->
 
 ## Use Cases
 
-<!-- AURO-GENERATED-CONTENT:START (FILE:src=./useCases.md) -->
-<!-- The below content is automatically added from ./useCases.md -->
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=../docs/partials/useCases.md) -->
+<!-- The below content is automatically added from ../docs/partials/useCases.md -->
 The `<auro-table>` element should be used in situations where users may:
 
 * Show static tabluar data
@@ -23,8 +23,8 @@ The `<auro-table>` element should be used in situations where users may:
 ## Example(s)
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/basic.html) -->
+  <!-- The below content is automatically added from ../apiExamples/basic.html -->
   <auro-table
     columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]'
     componentData='[
@@ -38,8 +38,8 @@ The `<auro-table>` element should be used in situations where users may:
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=../apiExamples/basic.html) -->
+<!-- The below code snippet is automatically added from ../apiExamples/basic.html -->
 
 ```html
 <auro-table
@@ -115,8 +115,8 @@ AuroTable.register('custom-table');
 This will create a new custom element that you can use in your HTML that will function identically to the `auro-table` element.
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/customTable.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/customTable.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/customTable.html) -->
+  <!-- The below content is automatically added from ../apiExamples/customTable.html -->
   <custom-table
     columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]'
     componentData='[
@@ -130,8 +130,8 @@ This will create a new custom element that you can use in your HTML that will fu
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/customTable.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/customTable.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=../apiExamples/customTable.html) -->
+<!-- The below code snippet is automatically added from ../apiExamples/customTable.html -->
 
 ```html
 <custom-table

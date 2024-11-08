@@ -1,5 +1,5 @@
-<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../api.md) -->
-<!-- The below content is automatically added from ./../api.md -->
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=../docs/api.md) -->
+<!-- The below content is automatically added from ../docs/api.md -->
 
 # auro-table
 
@@ -17,8 +17,8 @@
 ### Basic
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/basic.html) -->
+  <!-- The below content is automatically added from ../apiExamples/basic.html -->
   <auro-table
     columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]'
     componentData='[
@@ -32,8 +32,8 @@
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=../apiExamples/basic.html) -->
+<!-- The below code snippet is automatically added from ../apiExamples/basic.html -->
 
 ```html
 <auro-table
@@ -71,8 +71,8 @@ The `nowrap` attribute, when applied, will prevent table content from word wrapp
 
 The component may be restyled using the following code sample and changing the values of the following token(s).
 
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../src/tokens.scss) -->
-<!-- The below code snippet is automatically added from ./../../src/tokens.scss -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../src/tokens.scss) -->
+<!-- The below code snippet is automatically added from ./../src/tokens.scss -->
 
 ```scss
 @import "./../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables";
