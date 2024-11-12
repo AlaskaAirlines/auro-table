@@ -28,7 +28,8 @@ const indexExamplesConfig = {
   output: {
     format: 'esm',
     dir: 'demo/'
-  }
+  },
+  plugins: [nodeResolve()],
 };
 
 const apExamplesConfig = {
@@ -38,7 +39,8 @@ const apExamplesConfig = {
   output: {
     format: 'esm',
     dir: 'demo/'
-  }
+  },
+  plugins: [nodeResolve()],
 };
 
 export default [modernConfig, indexExamplesConfig, apExamplesConfig];
