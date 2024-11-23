@@ -1,5 +1,19 @@
 # Semantic Release Automated Changelog
 
+## [3.1.6](https://github.com/AlaskaAirlines/auro-table/compare/v3.1.5...v3.1.6) (2024-11-23)
+
+
+### Bug Fixes
+
+* update markdown partial pathing to consume new auro lib [#101](https://github.com/AlaskaAirlines/auro-table/issues/101) ([d26a2d7](https://github.com/AlaskaAirlines/auro-table/commit/d26a2d7953a2b36e6755d006ad232f6118b5ae1c))
+
+
+### Performance Improvements
+
+* add `nodeResolve` to rollup.config ([48e6529](https://github.com/AlaskaAirlines/auro-table/commit/48e65291ed9c60a48b7131d6ce833edcbe10d411))
+* package lock out of sync [#101](https://github.com/AlaskaAirlines/auro-table/issues/101) ([a218e30](https://github.com/AlaskaAirlines/auro-table/commit/a218e30b7a4e797da2756f4711cd6ade4f155acd))
+* update library to `3.0.2` ([b783620](https://github.com/AlaskaAirlines/auro-table/commit/b7836201f62f8ecd8d03d626fb0c9ea3a74aa437))
+
 ## [3.1.5](https://github.com/AlaskaAirlines/auro-table/compare/v3.1.4...v3.1.5) (2024-11-01)
 
 
