@@ -15,7 +15,7 @@
   display: block;
   overflow: scroll;
 
-  @include auro_breakpoint--sm {
+  @include auro_grid-breakpoint--sm {
     overflow: initial;
   }
 }
