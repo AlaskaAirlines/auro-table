@@ -1,5 +1,19 @@
 # Semantic Release Automated Changelog
 
+## [3.1.7](https://github.com/AlaskaAirlines/auro-table/compare/v3.1.6...v3.1.7) (2025-02-08)
+
+
+### Bug Fixes
+
+* update semantic release branch reference ([b1fa290](https://github.com/AlaskaAirlines/auro-table/commit/b1fa290d94f54b67feb393767db972ec60c35128))
+
+
+### Performance Improvements
+
+* update dependencies ([aa459b7](https://github.com/AlaskaAirlines/auro-table/commit/aa459b776b278f1d50449207878ba29031b57534))
+* update mixin to meet updated deps spec ([c818409](https://github.com/AlaskaAirlines/auro-table/commit/c818409660deacfb20a0bc5d153288a435d22938))
+* update node to version 22 ([e9b99ee](https://github.com/AlaskaAirlines/auro-table/commit/e9b99eeea4fbe03c004563d3814159d42f73d2dc))
+
 ## [3.1.6](https://github.com/AlaskaAirlines/auro-table/compare/v3.1.5...v3.1.6) (2024-11-23)
 
 
