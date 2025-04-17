@@ -75,11 +75,11 @@ The component may be restyled using the following code sample and changing the v
 <!-- The below code snippet is automatically added from ./../src/tokens.scss -->
 
 ```scss
-@import "./../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables";
+@import "./../node_modules/@aurodesignsystem/design-tokens/dist/alaska/SCSSVariables--alaska";
 
 :host {
-  --ds-auro-table-alt-row-container-color: var(--ds-color-container-secondary-default, #{$ds-color-container-secondary-default});
-  --ds-auro-table-border-color: var(--ds-color-border-divider-default, #{$ds-color-border-divider-default});
+  --ds-auro-table-alt-row-container-color: var(--ds-advanced-color-shared-background-muted, #{$ds-advanced-color-shared-background-muted});
+  --ds-auro-table-border-color: var(--ds-basic-color-border-subtle, #{$ds-basic-color-border-subtle});
 }
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
