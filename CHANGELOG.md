@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [4.1.0](https://github.com/AlaskaAirlines/auro-table/compare/v4.0.1...v4.1.0) (2025-04-30)
+
+
+### Features
+
+* update to use new color theming tokens [#112](https://github.com/AlaskaAirlines/auro-table/issues/112) ([1704257](https://github.com/AlaskaAirlines/auro-table/commit/17042571ca799c1c0b40a5ad419c40eeda9c8823))
+
 ## [4.0.1](https://github.com/AlaskaAirlines/auro-table/compare/v4.0.0...v4.0.1) (2025-04-08)
 
 
