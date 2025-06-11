@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [4.1.1](https://github.com/AlaskaAirlines/auro-table/compare/v4.1.0...v4.1.1) (2025-06-11)
+
+
+### Bug Fixes
+
+* make attribute data reactive [#114](https://github.com/AlaskaAirlines/auro-table/issues/114) ([6ac1550](https://github.com/AlaskaAirlines/auro-table/commit/6ac1550f48024c88cf8f3ceb7ef02192ab6ca1e8))
+
 # [4.1.0](https://github.com/AlaskaAirlines/auro-table/compare/v4.0.1...v4.1.0) (2025-04-30)
 
 
