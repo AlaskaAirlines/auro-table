@@ -27,9 +27,18 @@ export class AuroTable extends LitElement {
   // function to define props used within the scope of this component
   static get properties() {
     return {
-      columnHeaders:  { type: Array },
-      componentData:  { type: Array },
-      nowrap:         { type: Boolean }
+      columnHeaders: {
+        type: Array,
+        reflect: true
+      },
+      componentData: {
+        type: Array,
+        reflect: true
+      },
+      nowrap: {
+        type: Boolean,
+        reflect: true
+      }
     };
   }
 
@@ -74,6 +83,7 @@ export class AuroTable extends LitElement {
   extractHeaders() {
     if (this.columnHeaders) {
       const headerRow = this.shadowRoot.querySelector('thead tr');
+      headerRow.innerHTML = '';
 
       headerRow.innerHTML = '';
 
@@ -92,6 +102,7 @@ export class AuroTable extends LitElement {
    */
   extractRows() {
     const tableBody = this.shadowRoot.querySelector('tbody');
+    tableBody.innerHTML = '';
 
     if (this.componentData && this.columnHeaders) {
       this.componentData.forEach((row) => {
