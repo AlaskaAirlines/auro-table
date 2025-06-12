@@ -83,7 +83,6 @@ export class AuroTable extends LitElement {
   extractHeaders() {
     if (this.columnHeaders) {
       const headerRow = this.shadowRoot.querySelector('thead tr');
-      headerRow.innerHTML = '';
 
       headerRow.innerHTML = '';
 
