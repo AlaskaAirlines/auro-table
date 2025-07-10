@@ -8,8 +8,8 @@ import { classMap } from 'lit/directives/class-map.js';
 
 import AuroLibraryRuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
 
-import styleCss from "./style-css.js";
-import tokensCss from "./tokens-css.js";
+import styleCss from "./styles/style-css.js";
+import tokensCss from "./styles/tokens-css.js";
 
 // build the component class
 export class AuroTable extends LitElement {
@@ -126,7 +126,7 @@ export class AuroTable extends LitElement {
     };
 
     return html`
-      <table>
+      <table class="body-default">
         <thead><tr></tr></thead>
         <tbody class="${classMap(classes)}">
         </tbody>

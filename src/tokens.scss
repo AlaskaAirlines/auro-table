@@ -1,6 +1,0 @@
-@import "./../node_modules/@aurodesignsystem/design-tokens/dist/alaska/SCSSVariables--alaska";
-
-:host {
-  --ds-auro-table-alt-row-container-color: var(--ds-advanced-color-shared-background-muted, #{$ds-advanced-color-shared-background-muted});
-  --ds-auro-table-border-color: var(--ds-basic-color-border-subtle, #{$ds-basic-color-border-subtle});
-}
