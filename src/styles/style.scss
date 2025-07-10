@@ -4,19 +4,18 @@
 // ---------------------------------------------------------------------
 
 // Import Auro tokens
-@import "./../node_modules/@aurodesignsystem/design-tokens/dist/auro-classic/SCSSVariables";
-@import "./../node_modules/@aurodesignsystem/design-tokens/dist/auro-classic/SassCustomProperties";
-@import "./../node_modules/@aurodesignsystem/design-tokens/dist/alaska/SCSSVariables--alaska";
+@use "@aurodesignsystem/design-tokens/dist/legacy/auro-classic/SCSSVariables" as vac;
+@use "@aurodesignsystem/design-tokens/dist/themes/alaska/SCSSVariables--alaska" as v;
+@use "@aurodesignsystem/webcorestylesheets/src/breakpoints" as breakpoints;
 
-@import "./../node_modules/@aurodesignsystem/webcorestylesheets/src/breakpoints";
-@import "./../node_modules/@aurodesignsystem/webcorestylesheets/src/core";
+@use '@aurodesignsystem/webcorestylesheets/dist/bundled/type/classes.alaska.min.css';
 
 // container styles - defines the look of the outer custom componet
 :host {
   display: block;
   overflow: scroll;
 
-  @include auro_grid-breakpoint--sm {
+  @include breakpoints.auro_grid-breakpoint--sm {
     overflow: initial;
   }
 }
@@ -27,10 +26,9 @@
 table {
   overflow: scroll;
   width: 100%;
-  margin-bottom: var(--ds-size-400, $ds-size-400);
+  margin-bottom: var(--ds-size-400, vac.$ds-size-400);
   border-collapse: collapse;
-  border-spacing: var(--ds-size-100, $ds-size-100);
-  font-weight: var(--ds-text-heading-display-weight, $ds-text-heading-display-weight);
+  border-spacing: var(--ds-size-100, vac.$ds-size-100);
 }
 
 thead {
@@ -45,11 +43,11 @@ tr {
 }
 
 th, td {
-  padding: var(--ds-size-200, $ds-size-200);
+  padding: var(--ds-size-200, vac.$ds-size-200);
 }
 
 th {
-  font-weight: var(--ds-text-heading-default-weight, $ds-text-heading-default-weight);
+  font-weight: unset; /* inherit from parent instead of browser's default bold */
   text-align: left;
 }
 
