@@ -6,7 +6,7 @@
 // Import Auro tokens
 @use "@aurodesignsystem/design-tokens/dist/legacy/auro-classic/SCSSVariables" as vac;
 @use "@aurodesignsystem/design-tokens/dist/themes/alaska/SCSSVariables--alaska" as v;
-@use "@aurodesignsystem/webcorestylesheets/src/breakpoints" as breakpoints;
+@use "@aurodesignsystem/webcorestylesheets/src/breakpoints" as bp;
 
 @use '@aurodesignsystem/webcorestylesheets/dist/bundled/type/classes.alaska.min.css';
 
@@ -15,7 +15,7 @@
   display: block;
   overflow: scroll;
 
-  @include breakpoints.auro_grid-breakpoint--sm {
+  @include bp.auro_grid-breakpoint--sm {
     overflow: initial;
   }
 }
@@ -47,7 +47,6 @@ th, td {
 }
 
 th {
-  font-weight: unset; /* inherit from parent instead of browser's default bold */
   text-align: left;
 }
 
