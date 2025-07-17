@@ -1,5 +1,15 @@
 # Semantic Release Automated Changelog
 
+## [4.1.2](https://github.com/AlaskaAirlines/auro-table/compare/v4.1.1...v4.1.2) (2025-07-17)
+
+
+### Bug Fixes
+
+* add heading class to th ([7e0d6ca](https://github.com/AlaskaAirlines/auro-table/commit/7e0d6ca20912ef5a95be7218616893467bd5a774))
+* add themeable type classes ([d52759b](https://github.com/AlaskaAirlines/auro-table/commit/d52759b0e29e75cad52389b3da7e37c5259f98f1))
+* update docs head content ([5609336](https://github.com/AlaskaAirlines/auro-table/commit/560933624bbbaa672959ec519eaf267994088e70))
+* update packages ([fdaeaaa](https://github.com/AlaskaAirlines/auro-table/commit/fdaeaaa577520513a1194e5444ea83fb62285eeb))
+
 ## [4.1.1](https://github.com/AlaskaAirlines/auro-table/compare/v4.1.0...v4.1.1) (2025-06-11)
 
 
