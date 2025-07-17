@@ -88,6 +88,7 @@ export class AuroTable extends LitElement {
 
       this.columnHeaders.forEach((header) => {
         const th = document.createElement('th');
+        th.className = 'heading-2xs';
 
         th.innerHTML = header;
         headerRow.appendChild(th);
