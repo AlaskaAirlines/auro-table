@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [4.1.3](https://github.com/AlaskaAirlines/auro-table/compare/v4.1.2...v4.1.3) (2025-08-11)
+
+
+### Bug Fixes
+
+* auro library was causing aqua scan failures ([aca57b5](https://github.com/AlaskaAirlines/auro-table/commit/aca57b55aab0b8a48aef1743f671a4860691d808))
+
 ## [4.1.2](https://github.com/AlaskaAirlines/auro-table/compare/v4.1.1...v4.1.2) (2025-07-17)
 
 
