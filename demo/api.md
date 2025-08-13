@@ -78,7 +78,7 @@ The component may be restyled using the following code sample and changing the v
 @use "@aurodesignsystem/design-tokens/dist/themes/alaska/SCSSVariables--alaska" as v;
 
 :host {
-  --ds-auro-table-alt-row-container-color: var(--ds-advanced-color-shared-background-muted, #{v.$ds-advanced-color-shared-background-muted});
+  --ds-auro-table-alt-row-container-color: var(--ds-basic-color-surface-neutral-subtle, #{v.$ds-basic-color-surface-neutral-subtle});
   --ds-auro-table-border-color: var(--ds-basic-color-border-subtle, #{v.$ds-basic-color-border-subtle});
 }
 ```
