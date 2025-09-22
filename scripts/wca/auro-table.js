@@ -1,5 +1,4 @@
-
-import { AuroTable } from '../../src/auro-table.js';
+import { AuroTable } from "../../src/auro-table.js";
 
 /**
  */
