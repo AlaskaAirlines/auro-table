@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "@aurodesignsystem/auro-config/releaserc"
+  ]
+}
