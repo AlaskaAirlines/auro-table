@@ -4,12 +4,12 @@
 // ---------------------------------------------------------------------
 
 import { LitElement, html } from "lit";
-import { classMap } from 'lit/directives/class-map.js';
+import { classMap } from "lit/directives/class-map.js";
 
-import AuroLibraryRuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
+import AuroLibraryRuntimeUtils from "@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs";
 
-import styleCss from "./styles/style-css.js";
-import tokensCss from "./styles/tokens-css.js";
+import styleCss from "./styles/style.scss";
+import tokensCss from "./styles/tokens.scss";
 
 // build the component class
 export class AuroTable extends LitElement {
@@ -29,24 +29,21 @@ export class AuroTable extends LitElement {
     return {
       columnHeaders: {
         type: Array,
-        reflect: true
+        reflect: true,
       },
       componentData: {
         type: Array,
-        reflect: true
+        reflect: true,
       },
       nowrap: {
         type: Boolean,
-        reflect: true
-      }
+        reflect: true,
+      },
     };
   }
 
   static get styles() {
-    return [
-      styleCss,
-      tokensCss
-    ];
+    return [styleCss, tokensCss];
   }
 
   /**
@@ -62,18 +59,18 @@ export class AuroTable extends LitElement {
   }
 
   updated(changedProperties) {
-    if (changedProperties.has('columnHeaders')) {
+    if (changedProperties.has("columnHeaders")) {
       this.extractHeaders();
     }
 
-    if (changedProperties.has('componentData')) {
+    if (changedProperties.has("componentData")) {
       this.extractRows();
     }
   }
 
   firstUpdated() {
     // Add the tag name as an attribute if it is different than the component name
-    this.runtimeUtils.handleComponentTagRename(this, 'auro-table');
+    this.runtimeUtils.handleComponentTagRename(this, "auro-table");
   }
 
   /**
@@ -82,13 +79,13 @@ export class AuroTable extends LitElement {
    */
   extractHeaders() {
     if (this.columnHeaders) {
-      const headerRow = this.shadowRoot.querySelector('thead tr');
+      const headerRow = this.shadowRoot.querySelector("thead tr");
 
-      headerRow.innerHTML = '';
+      headerRow.innerHTML = "";
 
       this.columnHeaders.forEach((header) => {
-        const th = document.createElement('th');
-        th.className = 'heading-2xs';
+        const th = document.createElement("th");
+        th.className = "heading-2xs";
 
         th.innerHTML = header;
         headerRow.appendChild(th);
@@ -101,16 +98,16 @@ export class AuroTable extends LitElement {
    * @returns { void }
    */
   extractRows() {
-    const tableBody = this.shadowRoot.querySelector('tbody');
-    tableBody.innerHTML = '';
+    const tableBody = this.shadowRoot.querySelector("tbody");
+    tableBody.innerHTML = "";
 
     if (this.componentData && this.columnHeaders) {
       this.componentData.forEach((row) => {
-        const tr = document.createElement('tr');
+        const tr = document.createElement("tr");
 
         this.columnHeaders.forEach((column) => {
-          const td = document.createElement('td');
-          const content = row[column] || '';
+          const td = document.createElement("td");
+          const content = row[column] || "";
           td.innerHTML = content;
           tr.appendChild(td);
         });
@@ -123,7 +120,7 @@ export class AuroTable extends LitElement {
   // function that renders the HTML and CSS into  the scope of the component
   render() {
     const classes = {
-      'nowrap': this.nowrap,
+      nowrap: this.nowrap,
     };
 
     return html`
