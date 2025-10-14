@@ -5,7 +5,52 @@
 import { expect, fixture, html } from "@open-wc/testing";
 import "../src/registered.js";
 
+// Global component tests
 describe("auro-table", () => {
+
+  it("auro-table is accessible", async () => {
+    const el = await fixture(html`
+      <auro-table columnHeaders='["key1","key2","key3"]'
+        componentData='[
+        { "key1": "value1", "key2": "value2", "key3": "value3" },
+        { "key1": "value1a", "key2": "value2a", "key3": "value3a" }
+      ]'></auro-table>
+    `);
+
+    await expect(el).to.be.accessible();
+  });
+
+  it("does not crash for empty", async () => {
+    const el = await fixture(html`
+      <auro-table>
+      </auro-table>
+    `);
+
+    expect(el).to.not.be.an("undefined");
+  });
+
+  it("auro-table custom element is defined", async () => {
+    const el = await Boolean(customElements.get("auro-table"));
+
+    await expect(el).to.be.true;
+  });
+});
+
+// Attribute table tests
+describe("auro-table attributes", () => {
+  it("does not render a slot when attributes are supplied", async () => {
+    const el = await fixture(html`
+      <auro-table columnHeaders='["key1","key2","key3"]'
+        componentData='[
+        { "key1": "value1", "key2": "value2", "key3": "value3" },
+        { "key1": "value1a", "key2": "value2a", "key3": "value3a" }
+      ]'></auro-table>
+    `);
+
+    const slot = el.shadowRoot.querySelector("slot");
+    expect(slot).to.be.null;
+  });
+
   it("tests the table renders two rows with 3 columns", async () => {
     const el = await fixture(html`
       <auro-table columnHeaders='["key1","key2","key3"]'
@@ -58,31 +103,53 @@ describe("auro-table", () => {
     expect(columns.length).to.equal(3);
     expect(details.length).to.equal(6);
   });
+});
 
-  it("auro-table is accessible", async () => {
-    const el = await fixture(html`
-      <auro-table columnHeaders='["key1","key2","key3"]'
-        componentData='[
-        { "key1": "value1", "key2": "value2", "key3": "value3" },
-        { "key1": "value1a", "key2": "value2a", "key3": "value3a" }
-      ]'></auro-table>
-    `);
+// Custom table tests
+describe("auro-table custom table", () => {
 
-    await expect(el).to.be.accessible();
+  it("renders a slot when no attributes are supplied", async () => {
+    const el = await fixture(html`<auro-table></auro-table>`);
+    const slot = el.shadowRoot.querySelector("slot");
+
+    expect(slot).to.exist;
   });
 
-  it("does not crash for empty", async () => {
+  it("does not render a table when no attributes are supplied", async () => {
+    const el = await fixture(html`<auro-table></auro-table>`);
+    const table = el.shadowRoot.querySelector("table");
+    
+    expect(table).to.be.null;
+  });
+
+  it("renders a custom table via slot", async () => {
     const el = await fixture(html`
       <auro-table>
+        <table>
+          <thead>
+            <tr>
+              <th>Column 1</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Value 1</td>
+            </tr>
+          </tbody>
+        </table>
       </auro-table>
     `);
 
-    expect(el).to.not.be.an("undefined");
-  });
+    const slot = el.shadowRoot.querySelector("slot");
+    const assignedNodes = slot.assignedNodes({ flatten: true });
+    const slottedTable = assignedNodes.find(node => node.nodeName === "TABLE");
+    const slottedTableHeader = slottedTable.querySelectorAll("th");
+    const slottedTableData = slottedTable.querySelectorAll("td");
 
-  it("auro-table custom element is defined", async () => {
-    const el = await Boolean(customElements.get("auro-table"));
-
-    await expect(el).to.be.true;
+    expect(slot).to.exist;
+    expect(slottedTable).to.exist;
+    expect(slottedTableHeader.length).to.equal(1);
+    expect(slottedTableData.length).to.equal(1);
   });
 });
+

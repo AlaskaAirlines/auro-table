@@ -50,6 +50,6 @@ th {
   text-align: left;
 }
 
-.nowrap {
+:host([nowrap]) {
   white-space: nowrap;
 }

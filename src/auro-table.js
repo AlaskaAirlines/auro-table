@@ -4,7 +4,6 @@
 // ---------------------------------------------------------------------
 
 import { LitElement, html } from "lit";
-import { classMap } from "lit/directives/class-map.js";
 
 import AuroLibraryRuntimeUtils from "@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs";
 
@@ -119,16 +118,16 @@ export class AuroTable extends LitElement {
 
   // function that renders the HTML and CSS into  the scope of the component
   render() {
-    const classes = {
-      nowrap: this.nowrap,
-    };
-
-    return html`
-      <table class="body-default">
-        <thead><tr></tr></thead>
-        <tbody class="${classMap(classes)}">
-        </tbody>
-      </table>
-    `;
+    return this.columnHeaders && this.componentData
+      ? html`
+        <table>
+          <thead><tr></tr></thead>
+          <tbody>
+          </tbody>
+        </table>
+      `
+      : html`
+        <slot></slot>
+      `;
   }
 }
