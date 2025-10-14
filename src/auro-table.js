@@ -4,7 +4,6 @@
 // ---------------------------------------------------------------------
 
 import { LitElement, html } from "lit";
-import { classMap } from "lit/directives/class-map.js";
 
 import AuroLibraryRuntimeUtils from "@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs";
 
@@ -117,18 +116,55 @@ export class AuroTable extends LitElement {
     }
   }
 
+  /**
+   * Applies the default table classes for styling when a custom table is projected into the default slot
+   * @private
+   * @returns { void }
+   */
+  applyTableClasses() {
+    // Get the table from the slot
+    const slot = this.shadowRoot.querySelector("slot");
+
+    // Guard clause: if no slot is found, exit the function
+    if (!slot) { return; }
+
+    // Find the table element within the slot's assigned elements
+    const table = slot.assignedElements().find((el) => el.tagName === "TABLE");
+
+    // Guard Clause: if no table is found, exit the function
+    if (!table) { return; }
+
+    // Add body default class to the table for type theming
+    table.classList.add("body-default");
+
+    // Add header font class to each th for type theming
+    const headers = table.querySelectorAll("th");
+    headers.forEach((header) => {
+      header.classList.add("heading-2xs");
+    });
+  }
+
+  /**
+   * Handles the slot change for the default slot when using a projected custom table
+   * @private
+   * @returns { void }
+   */
+  handleSlotChange() {
+    this.applyTableClasses();
+  }
+
   // function that renders the HTML and CSS into  the scope of the component
   render() {
-    const classes = {
-      nowrap: this.nowrap,
-    };
-
-    return html`
-      <table class="body-default">
-        <thead><tr></tr></thead>
-        <tbody class="${classMap(classes)}">
-        </tbody>
-      </table>
-    `;
+    return this.columnHeaders && this.componentData
+      ? html`
+        <table class="body-default">
+          <thead><tr></tr></thead>
+          <tbody>
+          </tbody>
+        </table>
+      `
+      : html`
+        <slot @slotchange="${this.handleSlotChange}"></slot>
+      `;
   }
 }

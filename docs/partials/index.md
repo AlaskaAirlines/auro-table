@@ -16,15 +16,38 @@ This file is generated based on a template fetched from `../docs/partials/index.
 
 ## Example(s)
 
+The `auro-table` component supports two methods of table generation, either via data provided by attributes, or by projecting your own custom table into the component to be styled.
+
+### Attribute Data Table
+
+In order to have the component generate your table for you, you can pass data to the `column-headers` and `component-data` attributes to define your column headers and cell data respectively.
+
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/basic.html) -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/basic_attributes.html) -->
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=../apiExamples/basic.html) -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=../apiExamples/basic_attributes.html) -->
+<!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>
+
+### Custom Table
+
+Alternatively, you can simply provide your own table inside the `auro-table` tag and fill it with whatever content you like and it will be styled appropriately.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/basic_slot.html) -->
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion alignRight>
+  <span slot="trigger">See code</span>
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=../apiExamples/basic_slot.html) -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>
