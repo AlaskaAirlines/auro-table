@@ -21,7 +21,7 @@ The following sections are editable by making changes to the following files:
 
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./docs/partials/description.md) -->
 <!-- The below content is automatically added from ./docs/partials/description.md -->
-Use the `auro-table` custom element to illustrate non-dynamic tabular data. The auro-table element is responsive, with a flexible layout and an easy-to-use JSON API.
+Use the `auro-table` custom element to illustrate tabular data or content. The auro-table element is responsive, with a flexible layout and an easy-to-use JSON API.
 <!-- AURO-GENERATED-CONTENT:END -->
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./docs/partials/readmeAddlInfo.md) -->
 <!-- The below content is automatically added from ./docs/partials/readmeAddlInfo.md -->
@@ -74,14 +74,73 @@ import "@aurodesignsystem/auro-table";
 <!-- The below code snippet is automatically added from ./apiExamples/basic.html -->
 
 ```html
-<auro-table
-  columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]'
+<auro-table 
+  columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
   componentData='[
-  {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
-  {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-  {"": "Team meeting", "Wednesday": "10:00am" },
-  {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
-  ]'>My morning schedule
+    {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
+    {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+    {"": "Team meeting", "Wednesday": "10:00am" },
+    {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+  ]'
+>
+</auro-table>
+<auro-table>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Dance class</td>
+        <td>5:00pm</td>
+        <td></td>
+        <td>5:00pm</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Night classes</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>7:00pm</td>
+        <td>7:00pm</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Team meeting</td>
+        <td></td>
+        <td></td>
+        <td>10:00am</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Morning workout</td>
+        <td>8:00am</td>
+        <td>8:00am</td>
+        <td>8:00am</td>
+        <td>8:00am</td>
+        <td>8:00am</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </auro-table>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
@@ -103,7 +162,7 @@ In cases where the project is not able to process JS assets, there are pre-proce
 <!-- The below content is automatically added from ./docs/partials/useCases.md -->
 The `<auro-table>` element should be used in situations where users may:
 
-* Show static tabular data
+* Show static or dynamic tabular data or content
 <!-- AURO-GENERATED-CONTENT:END -->
 
 ## API Code Examples
@@ -114,14 +173,73 @@ The `<auro-table>` element should be used in situations where users may:
 <!-- The below code snippet is automatically added from ./apiExamples/basic.html -->
 
 ```html
-<auro-table
-  columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]'
+<auro-table 
+  columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
   componentData='[
-  {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
-  {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-  {"": "Team meeting", "Wednesday": "10:00am" },
-  {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
-  ]'>My morning schedule
+    {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
+    {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+    {"": "Team meeting", "Wednesday": "10:00am" },
+    {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+  ]'
+>
+</auro-table>
+<auro-table>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Dance class</td>
+        <td>5:00pm</td>
+        <td></td>
+        <td>5:00pm</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Night classes</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>7:00pm</td>
+        <td>7:00pm</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Team meeting</td>
+        <td></td>
+        <td></td>
+        <td>10:00am</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Morning workout</td>
+        <td>8:00am</td>
+        <td>8:00am</td>
+        <td>8:00am</td>
+        <td>8:00am</td>
+        <td>8:00am</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </auro-table>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
