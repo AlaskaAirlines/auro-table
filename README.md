@@ -17,258 +17,66 @@ The following sections are editable by making changes to the following files:
 | Component Example Code | HTML sample code of the components use            | `./apiExamples/basic.html`          |
 -->
 
-# Table
+# {{ capitalize name }}
 
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./docs/partials/description.md) -->
-<!-- The below content is automatically added from ./docs/partials/description.md -->
-Use the `auro-table` custom element to illustrate tabular data or content. The auro-table element is responsive, with a flexible layout and an easy-to-use JSON API.
 <!-- AURO-GENERATED-CONTENT:END -->
+
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./docs/partials/readmeAddlInfo.md) -->
-<!-- The below content is automatically added from ./docs/partials/readmeAddlInfo.md -->
-<!-- AURO-GENERATED-CONTENT This file is to be used for any additional content that should be included in the README.md which is specific to this component. -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
-## UI development browser support
+## Use Cases
 
-<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/auro-templates/main/templates/default/partials/browserSupport.md) -->
-For the most up to date information on [UI development browser support](https://auro.alaskaair.com/support/browsersSupport)
-
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./docs/partials/useCases.md) -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
 ## Install
 
 <!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/auro-templates/main/templates/default/partials/usage/componentInstall.md) -->
-[![Build Status](https://img.shields.io/github/actions/workflow/status/AlaskaAirlines/auro-table/testPublish.yml?style=for-the-badge)](https://github.com/AlaskaAirlines/auro-table/actions/workflows/testPublish.yml)
-[![See it on NPM!](https://img.shields.io/npm/v/@aurodesignsystem/auro-table?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurodesignsystem/auro-table)
-[![License](https://img.shields.io/npm/l/@aurodesignsystem/auro-table?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
-![ESM supported](https://img.shields.io/badge/ESM-compatible-FFE900?style=for-the-badge)
-
-```shell
-$ npm i @aurodesignsystem/auro-table
-```
-
 <!-- AURO-GENERATED-CONTENT:END -->
 
-### Design Token CSS Custom Property dependency
-
-<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/auro-templates/main/templates/default/partials/development/designTokens.md) -->
-The use of any Auro custom element has a dependency on the [Auro Design Tokens](https://auro.alaskaair.com/getting-started/developers/design-tokens).
-
-<!-- AURO-GENERATED-CONTENT:END -->
-
-### Define dependency in project component
+### Define Dependency in Project
 
 <!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/auro-templates/main/templates/default/partials/usage/componentImportDescription.md) -->
-Defining the component dependency within each component that is using the `<auro-table>` component.
-
 <!-- AURO-GENERATED-CONTENT:END -->
+
 <!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/auro-templates/main/templates/default/partials/usage/componentImport.md) -->
-
-```js
-import "@aurodesignsystem/auro-table";
-```
-
-<!-- AURO-GENERATED-CONTENT:END -->
-**Reference component in HTML**
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./apiExamples/basic.html -->
-
-```html
-<auro-table 
-  columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
-  componentData='[
-    {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
-    {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-    {"": "Team meeting", "Wednesday": "10:00am" },
-    {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
-  ]'
->
-</auro-table>
-<auro-table>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
-        <th>Saturday</th>
-        <th>Sunday</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Dance class</td>
-        <td>5:00pm</td>
-        <td></td>
-        <td>5:00pm</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Night classes</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>7:00pm</td>
-        <td>7:00pm</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Team meeting</td>
-        <td></td>
-        <td></td>
-        <td>10:00am</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Morning workout</td>
-        <td>8:00am</td>
-        <td>8:00am</td>
-        <td>8:00am</td>
-        <td>8:00am</td>
-        <td>8:00am</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</auro-table>
-```
 <!-- AURO-GENERATED-CONTENT:END -->
 
-## Use CDN
+### Use CDN
 
 <!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/auro-templates/main/templates/default/partials/usage/bundleInstallDescription.md) -->
-In cases where the project is not able to process JS assets, there are pre-processed assets available for use. Legacy browsers such as IE11 are no longer supported.
-
-```html
-<script type="module" src="https://cdn.jsdelivr.net/npm/@aurodesignsystem/auro-table@latest/+esm"></script>
-```
-
 <!-- AURO-GENERATED-CONTENT:END -->
 
-## auro-table use cases
-
-<!-- AURO-GENERATED-CONTENT:START (FILE:src=./docs/partials/useCases.md) -->
-<!-- The below content is automatically added from ./docs/partials/useCases.md -->
-The `<auro-table>` element should be used in situations where users may:
-
-* Show static or dynamic tabular data or content
-<!-- AURO-GENERATED-CONTENT:END -->
-
-## API Code Examples
-
-### Default auro-table
+## Basic Example
 
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./apiExamples/basic.html -->
-
-```html
-<auro-table 
-  columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
-  componentData='[
-    {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
-    {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-    {"": "Team meeting", "Wednesday": "10:00am" },
-    {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
-  ]'
->
-</auro-table>
-<auro-table>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
-        <th>Saturday</th>
-        <th>Sunday</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Dance class</td>
-        <td>5:00pm</td>
-        <td></td>
-        <td>5:00pm</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Night classes</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>7:00pm</td>
-        <td>7:00pm</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Team meeting</td>
-        <td></td>
-        <td></td>
-        <td>10:00am</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Morning workout</td>
-        <td>8:00am</td>
-        <td>8:00am</td>
-        <td>8:00am</td>
-        <td>8:00am</td>
-        <td>8:00am</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</auro-table>
-```
 <!-- AURO-GENERATED-CONTENT:END -->
 
-## Development
+## Custom Component Registration for Version Management
 
-<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/auro-templates/main/templates/default/partials/development/developmentDescription.md) -->
-In order to develop against this project, if you are not part of the core team, you will be required to fork the project prior to submitting a pull request.
+There are two key parts to every Auro component: the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">class</a> and the custom element definition.
+The class defines the component’s behavior, while the custom element registers it under a specific name so it can be used in HTML.
 
-Please be sure to review the [contribution guidelines](https://auro.alaskaair.com/contributing) for this project. Please make sure to **pay special attention** to the **conventional commits** section of the document.
+When you install the component as described on the `Install` page, the class is imported automatically, and the component is registered globally for you.
 
+However, if you need to load multiple versions of the same component on a single page (for example, when two projects depend on different versions), you can manually register the class under a custom element name to avoid conflicts.
+
+You can do this by importing only the component class and using the `register(name)` method with a unique name:
+
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./docs/partials/customRegistration.md) -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
-### Start development environment
+<div class="exampleWrapper exampleWrapper--flex">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./apiExamples/custom.html) -->
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
 
-<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/auro-templates/main/templates/default/partials/development/localhost.md) -->
-Once the project has been cloned to your local resource and you have installed all the dependencies you will need to open a shell session to run the **dev server**.
+<auro-accordion alignRight>
+  <span slot="trigger">See code</span>
 
-```shell
-$ npm run dev
-```
-
-Open [localhost:8000](http://localhost:8000/)
-
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/custom.html) -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
-### Testing
+</auro-accordion>
 
-<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/auro-templates/main/templates/default/partials/development/testing.md) -->
-Automated tests are required for every Auro component. See `.\test\auro-table.test.js` for the tests for this component. Run `npm run test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://auro.alaskaair.com/support/tests) for more details.
-
-<!-- AURO-GENERATED-CONTENT:END -->

@@ -15,8 +15,11 @@ import { classMap } from "lit/directives/class-map.js";
 
 
 /**
+ * 
+ * The `auro-table` element supports two types of tables, either a generated table created by providing data for columns and rows via attributes, or by projecting your own custom table into the default slot of the component to be styled.
+ * @customElement auro-table
+ * 
  * The AuroTable component provides two distinct functionalities for rendering and managing HTML tables:
- *
  * 1. **Data-driven Table Rendering**:
  *    - When the `columnHeaders` and `componentData` properties are set, the component generates a table structure internally.
  *    - Table headers are created from `columnHeaders`, and rows are populated from `componentData`.
@@ -123,6 +126,10 @@ export class AuroTable extends LitElement {
   constructor() {
     super();
 
+    this._initializeDefaults();
+  }
+
+  _initializeDefaults() {
     this.nowrap = false;
   }
 
@@ -134,7 +141,7 @@ export class AuroTable extends LitElement {
        */
       columnHeaders: {
         type: Array,
-        reflect: true,
+        reflect: true
       },
 
       /**
@@ -142,7 +149,7 @@ export class AuroTable extends LitElement {
        */
       componentData: {
         type: Array,
-        reflect: true,
+        reflect: true
       },
 
       /**
@@ -150,7 +157,7 @@ export class AuroTable extends LitElement {
        */
       nowrap: {
         type: Boolean,
-        reflect: true,
+        reflect: true
       },
     };
   }
@@ -161,7 +168,7 @@ export class AuroTable extends LitElement {
 
   /**
    * This will register this element with the browser.
-   * @param {string} [name="auro-table"] - The name of element that you want to register to.
+   * @param {string} [name="auro-table"] - The name of the element that you want to register.
    *
    * @example
    * AuroTable.register("custom-table") // this will register this element to <custom-table/>
