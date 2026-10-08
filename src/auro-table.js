@@ -71,7 +71,8 @@ export class AuroTable extends LitElement {
   get #tableBody() { return this.#tableBodyRef.value; }
 
   /**
-   * @property {Object} #elementClasses - Classes to be applied to different table elements referenced by tag name.
+   * Classes to be applied to different table elements referenced by tag name.
+   * @type {Record<string, string[]>}
    */
   #elementClasses = {
     'TABLE': ['body-default'],
@@ -138,16 +139,20 @@ export class AuroTable extends LitElement {
 
       /**
        * An array of strings representing the table's column headers.
+       * @type {string[]}
        */
       columnHeaders: {
+        attribute: "columnheaders",
         type: Array,
         reflect: true
       },
 
       /**
-       * An array of objects representing the table's data rows.
+       * An array of objects representing the table's data rows. Each object is keyed by column header.
+       * @type {Record<string, unknown>[]}
        */
       componentData: {
+        attribute: "componentdata",
         type: Array,
         reflect: true
       },
