@@ -1,7 +1,6 @@
 ```js
 // Import the class only
 import { AuroTable } from '@aurodesignsystem/auro-table/class';
-
 // Register with a custom name if desired
 AuroTable.register('custom-table');
 ```

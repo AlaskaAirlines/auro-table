@@ -5,11 +5,11 @@ The `auro-table` element supports two types of tables, either a generated table 
 
 ### Properties & Attributes
 
-| Properties    | Attributes    | Modifiers | Type    | Default | Description                                                  |
-| ------------- | ------------- | --------- | ------- | ------- | ------------------------------------------------------------ |
-| columnHeaders | columnHeaders |           | array   |         | An array of strings representing the table's column headers. |
-| componentData | componentData |           | array   |         | An array of objects representing the table's data rows.      |
-| nowrap        | nowrap        |           | boolean |         | When true, prevents the table from wrapping its content.     |
+| Properties    | Attributes    | Modifiers | Type                      | Default | Description                                                                                    |
+| ------------- | ------------- | --------- | ------------------------- | ------- | ---------------------------------------------------------------------------------------------- |
+| columnHeaders | columnheaders |           | string[]                  |         | An array of strings representing the table's column headers.                                   |
+| componentData | componentdata |           | Record<string, unknown>[] |         | An array of objects representing the table's data rows. Each object is keyed by column header. |
+| nowrap        | nowrap        |           | boolean                   |         | When true, prevents the table from wrapping its content.                                       |
 
 ### Methods
 
