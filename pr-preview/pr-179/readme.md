@@ -161,7 +161,6 @@ You can do this by importing only the component class and using the `register(na
 
 <pre class="language-js"><code class="language-js">// Import the class only
 import { AuroTable } from '@aurodesignsystem/auro-table/class';
-​
 // Register with a custom name if desired
 AuroTable.register('custom-table');</code></pre>
 
