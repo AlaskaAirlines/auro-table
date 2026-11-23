@@ -5,18 +5,18 @@
 
 To have the component generate your table, set the `columnHeaders` and `componentData` attributes to define the column headers and the cell data.
 
-### columnHeaders
+### `columnHeaders`
 
-This attribute takes an array of column headers to use, and accepts blank strings for empty columns. It does not support duplicate values, including empty strings, as each value is used as a key to project data into the table cells via the `componentData` attribute.
+Sets the column headers, as an array of strings. Blank strings are allowed for empty columns, but duplicates aren't, including blank ones, because each header is also the key that matches cells in `componentData`.
 
 Example:
 ```javascript
 ["Column 1", "Column 2", "Column 3"]
 ```
 
-### componentData
+### `componentData`
 
-This attribute takes an array of objects, with each object representing a row with data defined for each cell by specifying the matching column-header value.
+Sets the rows, as an array of objects. Each object is one row, with a key for each column header and the cell content as its value. A missing key leaves its cell empty.
 
 Example:
 ```javascript
