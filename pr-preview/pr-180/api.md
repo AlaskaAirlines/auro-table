@@ -45,16 +45,16 @@ Shows tabular data, either as a table generated from data you provide or as your
 
 To have the component generate your table, set the `columnHeaders` and `componentData` attributes to define the column headers and the cell data.
 
-### columnHeaders
+### `columnHeaders`
 
-This attribute takes an array of column headers to use, and accepts blank strings for empty columns. It does not support duplicate values, including empty strings, as each value is used as a key to project data into the table cells via the `componentData` attribute.
+Sets the column headers, as an array of strings. Blank strings are allowed for empty columns, but duplicates aren't, including blank ones, because each header is also the key that matches cells in `componentData`.
 
 Example:
 <pre class="language-javascript"><code class="language-javascript">["Column 1", "Column 2", "Column 3"]</code></pre>
 
-### componentData
+### `componentData`
 
-This attribute takes an array of objects, with each object representing a row with data defined for each cell by specifying the matching column-header value.
+Sets the rows, as an array of objects. Each object is one row, with a key for each column header and the cell content as its value. A missing key leaves its cell empty.
 
 Example:
 <pre class="language-javascript"><code class="language-javascript">[
@@ -74,12 +74,12 @@ Example:
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/basic-attributes.html) -->
 <!-- The below content is automatically added from ../apiExamples/basic-attributes.html -->
 <auro-table 
-    columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
+    columnHeaders='["Activity","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
     componentData='[
-      {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
-      {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-      {"": "Team meeting", "Wednesday": "10:00am" },
-      {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+      {"Activity": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
+      {"Activity": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+      {"Activity": "Team meeting", "Wednesday": "10:00am" },
+      {"Activity": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
     ]'
   >
 </auro-table>
@@ -91,12 +91,12 @@ Example:
 <!-- The below code snippet is automatically added from ../apiExamples/basic-attributes.html -->
 
 <pre class="language-html"><code class="language-html">&lt;auro-table 
-  columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
+  columnHeaders='["Activity","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
   componentData='[
-    {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
-    {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-    {"": "Team meeting", "Wednesday": "10:00am" },
-    {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+    {"Activity": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
+    {"Activity": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+    {"Activity": "Team meeting", "Wednesday": "10:00am" },
+    {"Activity": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
   ]'
 &gt;
 &lt;/auro-table&gt;</code></pre>
@@ -114,7 +114,7 @@ For more dynamic content, put your own native `<table>` element inside the `auro
 <table>
 <thead>
 <tr>
-<th></th>
+<th>Activity</th>
 <th>Monday</th>
 <th>Tuesday</th>
 <th>Wednesday</th>
@@ -179,7 +179,7 @@ For more dynamic content, put your own native `<table>` element inside the `auro
   &lt;table&gt;
     &lt;thead&gt;
       &lt;tr&gt;
-        &lt;th&gt;&lt;/th&gt;
+        &lt;th&gt;Activity&lt;/th&gt;
         &lt;th&gt;Monday&lt;/th&gt;
         &lt;th&gt;Tuesday&lt;/th&gt;
         &lt;th&gt;Wednesday&lt;/th&gt;
@@ -247,12 +247,12 @@ The `nowrap` attribute keeps table content on a single line instead of wrapping 
 <!-- The below content is automatically added from ../apiExamples/nowrap.html -->
 <auro-table 
     nowrap
-    columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
+    columnHeaders='["Activity","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
     componentData='[
-      {"": "A very long task name that will not fit", "Monday": "5:00pm","Wednesday": "5:00pm" },
-      {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-      {"": "Team meeting", "Wednesday": "10:00am" },
-      {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+      {"Activity": "A very long task name that stays on one line", "Monday": "5:00pm","Wednesday": "5:00pm" },
+      {"Activity": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+      {"Activity": "Team meeting", "Wednesday": "10:00am" },
+      {"Activity": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
     ]'
   ></auro-table>
 <!-- AURO-GENERATED-CONTENT:END -->
@@ -264,12 +264,12 @@ The `nowrap` attribute keeps table content on a single line instead of wrapping 
 
 <pre class="language-html"><code class="language-html">&lt;auro-table 
   nowrap
-  columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
+  columnHeaders='["Activity","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
   componentData='[
-    {"": "A very long task name that will not fit", "Monday": "5:00pm","Wednesday": "5:00pm" },
-    {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-    {"": "Team meeting", "Wednesday": "10:00am" },
-    {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+    {"Activity": "A very long task name that stays on one line", "Monday": "5:00pm","Wednesday": "5:00pm" },
+    {"Activity": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+    {"Activity": "Team meeting", "Wednesday": "10:00am" },
+    {"Activity": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
   ]'
 &gt;&lt;/auro-table&gt;</code></pre>
 <!-- AURO-GENERATED-CONTENT:END -->

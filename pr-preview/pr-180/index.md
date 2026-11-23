@@ -28,12 +28,12 @@ To have the component generate your table, set the `columnHeaders` and `componen
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/basic-attributes.html) -->
 <!-- The below content is automatically added from ../apiExamples/basic-attributes.html -->
 <auro-table 
-    columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
+    columnHeaders='["Activity","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
     componentData='[
-      {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
-      {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-      {"": "Team meeting", "Wednesday": "10:00am" },
-      {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+      {"Activity": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
+      {"Activity": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+      {"Activity": "Team meeting", "Wednesday": "10:00am" },
+      {"Activity": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
     ]'
   >
 </auro-table>
@@ -45,12 +45,12 @@ To have the component generate your table, set the `columnHeaders` and `componen
 <!-- The below code snippet is automatically added from ../apiExamples/basic-attributes.html -->
 
 <pre class="language-html"><code class="language-html">&lt;auro-table 
-  columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
+  columnHeaders='["Activity","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
   componentData='[
-    {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
-    {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-    {"": "Team meeting", "Wednesday": "10:00am" },
-    {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+    {"Activity": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
+    {"Activity": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+    {"Activity": "Team meeting", "Wednesday": "10:00am" },
+    {"Activity": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
   ]'
 &gt;
 &lt;/auro-table&gt;</code></pre>
@@ -68,7 +68,7 @@ For more dynamic content, put your own native `<table>` element inside the `auro
 <table>
 <thead>
 <tr>
-<th></th>
+<th>Activity</th>
 <th>Monday</th>
 <th>Tuesday</th>
 <th>Wednesday</th>
@@ -133,7 +133,7 @@ For more dynamic content, put your own native `<table>` element inside the `auro
   &lt;table&gt;
     &lt;thead&gt;
       &lt;tr&gt;
-        &lt;th&gt;&lt;/th&gt;
+        &lt;th&gt;Activity&lt;/th&gt;
         &lt;th&gt;Monday&lt;/th&gt;
         &lt;th&gt;Tuesday&lt;/th&gt;
         &lt;th&gt;Wednesday&lt;/th&gt;
