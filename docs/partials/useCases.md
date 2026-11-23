@@ -1,3 +1,1 @@
-The `<auro-table>` element should be used in situations where users may:
-
-* Show static or dynamic tabular data or content
+Use `auro-table` to show tabular data, such as a schedule or a comparison, either from data you provide or from your own native `<table>`.
