@@ -5,7 +5,7 @@
  */
 export class ChildItemService {
   /**
-   * An array that holds the tracked table elements.
+   * An array that holds the tracked items.
    * @private
    */
   #items = [];
@@ -164,13 +164,13 @@ export class ChildItemService {
    * Gets an item by its number (1-based index).
    * @param {Number} number - The 1-based position of the item.
    * @returns {Object} The item at that position.
-   * @throws {Error} If there are no items, or the number isn't a number in range.
+   * @throws {Error} If there are no items, or the number isn't a number, is less than 1, or is greater than the item count.
    */
   getItemByNumber(number) {
     if (
       this.#items.length === 0 ||
       typeof number !== "number" ||
-      number < 0 ||
+      number < 1 ||
       number > this.#items.length
     ) {
       throw new Error(
