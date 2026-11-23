@@ -15,11 +15,11 @@ Shows tabular data, either as a table generated from data you provide or as your
 
 ### Properties and attributes
 
-| Properties    | Attributes    | Modifiers | Type                     | Default | Description                                                                                                                                                                                                                                                    |
-| ------------- | ------------- | --------- | ------------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| columnHeaders | columnheaders |           | string[]                 |         | Sets the column headers for a generated table, as an array of strings. Each header must be unique, including blank ones, because it's also the key that matches cells in `componentData`. The table is generated only when `componentData` is also set.        |
-| componentData | componentdata |           | Record<string, string>[] |         | Sets the rows of a generated table, as an array of objects. Each object is one row, with `columnHeaders` values as keys and the cell content as values, and a missing key leaves its cell empty. The table is generated only when `columnHeaders` is also set. |
-| nowrap        | nowrap        |           | boolean                  |         | Keeps table content on a single line instead of wrapping it. Applies to both generated and projected tables.                                                                                                                                                   |
+| Properties    | Attributes    | Modifiers | Type                     | Default | Description                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------- | ------------- | --------- | ------------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| columnHeaders | columnheaders |           | string[]                 |         | Sets the column headers for a generated table, as an array of strings. Each header must be unique, including blank ones, because it's also the key that matches cells in `componentData`. The table is generated only when `componentData` is also set. Security: headers are inserted as HTML, without sanitization, so don't pass untrusted input, because it can run code in your page.            |
+| componentData | componentdata |           | Record<string, string>[] |         | Sets the rows of a generated table, as an array of objects. Each object is one row, with `columnHeaders` values as keys and the cell content as values, and a missing key leaves its cell empty. The table is generated only when `columnHeaders` is also set. Security: cell content is inserted as HTML, without sanitization, so don't pass untrusted input, because it can run code in your page. |
+| nowrap        | nowrap        |           | boolean                  |         | Keeps table content on a single line instead of wrapping it. Applies to both generated and projected tables.                                                                                                                                                                                                                                                                                          |
 
 ### Methods
 
@@ -49,12 +49,16 @@ To have the component generate your table, set the `columnHeaders` and `componen
 
 Sets the column headers, as an array of strings. Blank strings are allowed for empty columns, but duplicates aren't, including blank ones, because each header is also the key that matches cells in `componentData`.
 
+Security: headers are inserted as HTML, without sanitization. Don't pass untrusted input, because it can run code in your page.
+
 Example:
 <pre class="language-javascript"><code class="language-javascript">["Column 1", "Column 2", "Column 3"]</code></pre>
 
 ### `componentData`
 
 Sets the rows, as an array of objects. Each object is one row, with a key for each column header and the cell content as its value. A missing key leaves its cell empty.
+
+Security: cell content is inserted as HTML, without sanitization. Don't pass untrusted input, because it can run code in your page.
 
 Example:
 <pre class="language-javascript"><code class="language-javascript">[
