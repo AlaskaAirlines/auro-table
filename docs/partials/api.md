@@ -9,6 +9,8 @@ To have the component generate your table, set the `columnHeaders` and `componen
 
 Sets the column headers, as an array of strings. Blank strings are allowed for empty columns, but duplicates aren't, including blank ones, because each header is also the key that matches cells in `componentData`.
 
+Security: headers are inserted as HTML, without sanitization. Don't pass untrusted input, because it can run code in your page.
+
 Example:
 ```javascript
 ["Column 1", "Column 2", "Column 3"]
@@ -17,6 +19,8 @@ Example:
 ### `componentData`
 
 Sets the rows, as an array of objects. Each object is one row, with a key for each column header and the cell content as its value. A missing key leaves its cell empty.
+
+Security: cell content is inserted as HTML, without sanitization. Don't pass untrusted input, because it can run code in your page.
 
 Example:
 ```javascript
