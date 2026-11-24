@@ -1,1 +1,1 @@
-Use the `auro-table` custom element to illustrate tabular data or content. The auro-table element is responsive, with a flexible layout and an easy-to-use JSON API. Alternatively, an HTML5 `<table>` may be used inside of the tag to create more dynamic tabular data.
+Shows tabular data in a table that follows Auro styling. Generate the table from data you provide, or put your own native `<table>` inside `auro-table`.

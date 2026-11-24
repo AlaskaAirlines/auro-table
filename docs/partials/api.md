@@ -1,22 +1,26 @@
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../docs/api.md) -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
-## Generated Table
+## Generated table
 
-In order to have the component generate your table for you, you can pass data to the `columnHeaders` and `componentData` attributes to define your column headers and cell data respectively.
+To have the component generate your table, set the `columnHeaders` and `componentData` attributes to define the column headers and the cell data.
 
-### columnHeaders
+### `columnHeaders`
 
-This attribute takes an array of column headers to use, and accepts blank strings for empty columns. It does not support duplicate values, including empty strings, as each value is used as a key to project data into the table cells via the `componentData` attribute.
+Sets the column headers, as an array of strings. Blank strings are allowed for empty columns, but duplicates aren't, including blank ones, because each header is also the key that matches cells in `componentData`.
+
+Security: headers are inserted as HTML, without sanitization. Don't pass untrusted input, because it can run code in your page.
 
 Example:
 ```javascript
 ["Column 1", "Column 2", "Column 3"]
 ```
 
-### componentData
+### `componentData`
 
-This attribute takes an array of objects, with each object representing a row with data defined for each cell by specifying the matching column-header value.
+Sets the rows, as an array of objects. Each object is one row, with a key for each column header and the cell content as its value. A missing key leaves its cell empty.
+
+Security: cell content is inserted as HTML, without sanitization. Don't pass untrusted input, because it can run code in your page.
 
 Example:
 ```javascript
@@ -47,9 +51,9 @@ Example:
 
 </auro-accordion>
 
-## Projected Table
+## Projected table
 
-For more dynamic content, you can provide your own custom HTML5 `<table>` element inside the `auro-table` tag to be projected into the default slot and styled appropriately. The `auro-table` component will add any supporting classes needed for styling. Mutations to the table, such as adding and removing columns and cells, are supported.
+For more dynamic content, put your own native `<table>` element inside the `auro-table` tag. The table is projected into the default slot and styled. The component adds the classes it needs to style your table, and it keeps styling columns and cells you add or remove later.
 
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/basic-slot.html) -->
@@ -64,11 +68,11 @@ For more dynamic content, you can provide your own custom HTML5 `<table>` elemen
 
 </auro-accordion>
 
-## Property & Attribute Examples
+## Property and attribute examples
 
-### noWrap
+### `nowrap`
 
-The `nowrap` attribute, when applied, will prevent table content from word wrapping, i.e. all text content will be on a single line.
+The `nowrap` attribute keeps table content on a single line instead of wrapping it.
 
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/nowrap.html) -->
@@ -83,9 +87,9 @@ The `nowrap` attribute, when applied, will prevent table content from word wrapp
 
 </auro-accordion>
 
-## Restyle Component with CSS Variables
+## Restyle with CSS custom properties
 
-The component may be restyled by changing the values of the following token(s).
+Restyle the component by changing the values of the following tokens.
 
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../src/styles/tokens.scss) -->
 <!-- AURO-GENERATED-CONTENT:END -->

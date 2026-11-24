@@ -15,22 +15,22 @@ import { classMap } from "lit/directives/class-map.js";
 
 
 /**
- * 
- * The `auro-table` element supports two types of tables, either a generated table created by providing data for columns and rows via attributes, or by projecting your own custom table into the default slot of the component to be styled.
- * @customElement auro-table
- * 
- * The AuroTable component provides two distinct functionalities for rendering and managing HTML tables:
- * 1. **Data-driven Table Rendering**:
- *    - When the `columnHeaders` and `componentData` properties are set, the component generates a table structure internally.
- *    - Table headers are created from `columnHeaders`, and rows are populated from `componentData`.
+ * Shows tabular data, either as a table generated from data you provide or as your own native `<table>` styled to match Auro.
  *
- * 2. **Slotted Table**:
- *    - When a native `<table>` element is projected into the component's default slot, AuroTable enhances it by:
- *      - Injecting design system styles directly into the table.
- *      - Tracking and managing child elements (TH, TD, TR, THEAD, TBODY, TABLE) using internal collections.
- *      - Observing DOM mutations to dynamically update collections and apply appropriate classes.
- *    - This mode allows developers to use their own table markup while benefiting from AuroTable's styling and child management features.
- * @slot - Default slot for projecting a native `<table>` element. Only available when `columnHeaders` and `componentData` are not set.
+ * ## Key capabilities
+ * - **Generated table**: Set `columnHeaders` and `componentData` to build the table from data.
+ * - **Projected table**: Put a native `<table>` in the default slot to have it styled, including rows and cells you add or remove later.
+ * - **Single-line content**: Set `nowrap` to keep table content from wrapping.
+ *
+ * ## Example
+ * ```html
+ * <auro-table columnHeaders='["Day","Class"]' componentData='[{"Day":"Monday","Class":"Dance"}]'></auro-table>
+ * ```
+ * @summary A table that shows data you provide or styles your own native table markup.
+ * @customElement auro-table
+ * @slot - Holds your own native `<table>`, which the component styles. Shown only when `columnHeaders` and `componentData` aren't both set to non-empty arrays.
+ * @cssprop {Color} --ds-auro-table-alt-row-container-color - Background color of the even-numbered rows.
+ * @cssprop {Color} --ds-auro-table-border-color - Color of the line below the table header.
  */
 export class AuroTable extends LitElement {
 
@@ -71,7 +71,8 @@ export class AuroTable extends LitElement {
   get #tableBody() { return this.#tableBodyRef.value; }
 
   /**
-   * @property {Object} #elementClasses - Classes to be applied to different table elements referenced by tag name.
+   * Classes to be applied to different table elements referenced by tag name.
+   * @type {Record<string, string[]>}
    */
   #elementClasses = {
     'TABLE': ['body-default'],
@@ -83,9 +84,9 @@ export class AuroTable extends LitElement {
   }
 
   /**
-   * Handles the addition of new elements to the table.
-   * Callback function for ChildItemService subscriptions contained in tagCollections.
-   * @param {NodeList} addedNodes
+   * Called when items are added to a table tag collection. Adds the classes for that tag to each new item.
+   * Subscribed to each `ChildItemService` in `#tagCollections`.
+   * @param {{addedItems: HTMLElement[]}} detail - The change details from `ChildItemService`.
    * @private
    */
   collectionUpdated = ({addedItems}) => {
@@ -98,8 +99,8 @@ export class AuroTable extends LitElement {
   };
 
   /**
-   * Creates a ChildItemService for each relevant table tag to manage collections of those elements.
-   * To create a collection for a new tag, add it to the tagCollections array.
+   * Creates a `ChildItemService` for each relevant table tag to manage collections of those elements.
+   * To create a collection for a new tag, add it to the tag list in `#tagCollections`.
    * @type {Object<string, ChildItemService>}
    * @private
    */
@@ -110,9 +111,9 @@ export class AuroTable extends LitElement {
     }, {});
 
   /**
-   * Gets the class map based on this.#elementClasses for a given tag.
-   * @param {HTMLElement.tagName} tag 
-   * @returns {Object} - Class map for use with lit's classMap directive.
+   * Gets the class map for a tag, based on `#elementClasses`.
+   * @param {HTMLElement.tagName} tag - The tag name to look up, in any case.
+   * @returns {Object} The class map for use with lit's `classMap` directive.
    * @private
    */
   #classMapFor(tag) {
@@ -129,6 +130,10 @@ export class AuroTable extends LitElement {
     this._initializeDefaults();
   }
 
+  /**
+   * Sets the default values for the component's properties.
+   * @private
+   */
   _initializeDefaults() {
     this.nowrap = false;
   }
@@ -137,23 +142,27 @@ export class AuroTable extends LitElement {
     return {
 
       /**
-       * An array of strings representing the table's column headers.
+       * Sets the column headers for a generated table, as an array of strings. Each header must be unique, including blank ones, because it's also the key that matches cells in `componentData`. The table is generated only when `componentData` is also set. Security: headers are inserted as HTML, without sanitization, so don't pass untrusted input, because it can run code in your page.
+       * @type {string[]}
        */
       columnHeaders: {
+        attribute: "columnheaders",
         type: Array,
         reflect: true
       },
 
       /**
-       * An array of objects representing the table's data rows.
+       * Sets the rows of a generated table, as an array of objects. Each object is one row, with `columnHeaders` values as keys and the cell content as values, and a missing key leaves its cell empty. The table is generated only when `columnHeaders` is also set. Security: cell content is inserted as HTML, without sanitization, so don't pass untrusted input, because it can run code in your page.
+       * @type {Record<string, string>[]}
        */
       componentData: {
+        attribute: "componentdata",
         type: Array,
         reflect: true
       },
 
       /**
-       * When true, prevents the table from wrapping its content.
+       * Keeps table content on a single line instead of wrapping it. Applies to both generated and projected tables.
        */
       nowrap: {
         type: Boolean,
@@ -167,11 +176,11 @@ export class AuroTable extends LitElement {
   }
 
   /**
-   * This will register this element with the browser.
-   * @param {string} [name="auro-table"] - The name of the element that you want to register.
+   * Registers the element with the browser under a tag name.
+   * @param {string} [name="auro-table"] - The tag name to register the element under.
    *
    * @example
-   * AuroTable.register("custom-table") // this will register this element to <custom-table/>
+   * AuroTable.register("custom-table") // Registers the element as <custom-table>
    *
    */
   static register(name = "auro-table") {
@@ -206,7 +215,7 @@ export class AuroTable extends LitElement {
    */
 
   /**
-   * Extracts headers from the columnHeaders property and populates the table header.
+   * Extracts headers from the `columnHeaders` property and populates the table header.
    * @returns { void }
    * @private
    */
@@ -234,7 +243,7 @@ export class AuroTable extends LitElement {
   }
 
   /**
-   * Extracts rows from the componentData property and populates the table body.
+   * Extracts rows from the `componentData` property and populates the table body.
    * @returns { void }
    * @private
    */
@@ -278,7 +287,7 @@ export class AuroTable extends LitElement {
 
   /**
    * Observes mutations to the table element and adds or removes elements from collections accordingly.
-   * @param {HTMLTableElement} table
+   * @param {HTMLTableElement} table - The slotted table to observe.
    * @private
    */
   #observeTableMutations(table) {
@@ -306,7 +315,7 @@ export class AuroTable extends LitElement {
 
   /**
    * Extracts relevant elements from a slotted table and adds them to collections for tracking.
-   * @param {HTMLTableElement} table
+   * @param {HTMLTableElement} table - The slotted table to read elements from.
    * @private
    */
   #extractElementsFromSlottedTable(table) {
@@ -322,7 +331,7 @@ export class AuroTable extends LitElement {
   /**
    * Binds the component to a slotted table element.
    * This includes extracting existing elements and observing for mutations.
-   * @param {HTMLTableElement} table
+   * @param {HTMLTableElement} table - The slotted table to bind to.
    * @private
    */
   #bindToSlottedTable(table) {
@@ -333,7 +342,7 @@ export class AuroTable extends LitElement {
 
   /**
    * Injects styles into the slotted table.
-   * @param {HTMLTableElement} table
+   * @param {HTMLTableElement} table - The slotted table to inject styles into.
    * @returns { void }
    * @private
    */
@@ -351,7 +360,7 @@ export class AuroTable extends LitElement {
   }
 
   /**
-   * Handles when elements are projected into the default slot
+   * Called when elements are projected into the default slot.
    * @returns { void }
    * @private
    */

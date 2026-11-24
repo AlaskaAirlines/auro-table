@@ -1,38 +1,40 @@
 /**
+ * Manages a collection of child items and notifies subscribers when it changes.
+ * Components can add and remove items, subscribe to changes, and compare the current items with the previous ones.
  * @class ChildItemService
- * @description Service class that manages child items and exposes methods to add, remove, and subscribe to changes in the items array.
- * This service allows components to:
- * - Add and remove themselves/items from the service
- * - Subscribe to notifications when items change
- * - Track previous state of items for comparison
- * The service implements a simple pub/sub pattern to notify components when the items collection changes.
  */
 export class ChildItemService {
   /**
-   * @property {Array} items - An array to hold the auro-scrolleritems in the scroller.
+   * An array that holds the tracked items.
    * @private
    */
   #items = [];
 
   /**
-   * @property {Array} previousItems - An array to hold the previous items in the scroller.
+   * An array that holds the items from before the latest change.
    * @private
    */
   #previousItems = [];
 
   /**
-   * @property {Array} subscribers - An array to hold the subscribers for item changes.
+   * An array that holds the subscribers for item changes.
    * @private
    */
   #subscribers = [];
 
   /**
-   * @property {Object[]} current - A getter to access the current items in the scroller.
+   * Gets the current items.
+   * @returns {Object[]} The array of items currently tracked.
    */
   get current() {
     return this.#items;
   }
 
+  /**
+   * Creates a service, and subscribes the callback if one is given.
+   * @param {Object} [options] - The options for the service.
+   * @param {Function} [options.callback] - The function to call when the items change.
+   */
   constructor({callback} = {}) {
     if (typeof callback === "function") {
       this.subscribe(callback);
@@ -40,10 +42,10 @@ export class ChildItemService {
   }
 
   /**
-   * @param {Function} callback - A callback function that will be called when the items change.
-   * @description This method allows you to subscribe to changes in the items array.
-   * @returns {Function} - A function to unsubscribe from the changes.
-   * @throws {Error} - Throws an error if the callback is not a function.
+   * Subscribes to changes in the items array.
+   * @param {Function} callback - The function to call when the items change.
+   * @returns {Function} The function that unsubscribes the callback.
+   * @throws {Error} If the callback isn't a function.
    */
   subscribe(callback) {
     if (typeof callback !== "function")
@@ -56,10 +58,10 @@ export class ChildItemService {
   }
 
   /**
-   * @param {Function} callback - A callback function that will be called when the items change.
-   * @description This method allows you to unsubscribe from changes in the items array.
-   * @returns {Boolean} - Whether or not you were successfully unsubscribed.
-   * @throws {Error} - Throws an error if the callback is not a function.
+   * Unsubscribes from changes in the items array.
+   * @param {Function} callback - The function to stop calling when the items change.
+   * @returns {Boolean} Always true.
+   * @throws {Error} If the callback isn't a function.
    */
   unsubscribe(callback) {
     if (typeof callback !== "function")
@@ -74,7 +76,8 @@ export class ChildItemService {
   }
 
   /**
-   * Notify all subscribers of changes in the items array.
+   * Notifies all subscribers of changes in the items array.
+   * @private
    */
   #notifySubscribers() {
     for (const callback of this.#subscribers)
@@ -87,10 +90,10 @@ export class ChildItemService {
   }
 
   /**
-   * @param {Object} item - An item to add to the scroller.
-   * @description This method adds an item to the scroller and notifies subscribers.
+   * Adds an item and notifies subscribers.
+   * @param {Object} item - The item to add.
    * @returns {void}
-   * @throws {Error} - Throws an error if the item is not an object.
+   * @throws {Error} If the item isn't an object.
    */
   add(item) {
     if (typeof item !== "object" || item === null)
@@ -102,10 +105,10 @@ export class ChildItemService {
   }
 
   /**
-   * @description This method adds multiple items to the service and notifies subscribers.
-   * @param {ArrayLike<any>} items
+   * Adds multiple items and notifies subscribers.
+   * @param {ArrayLike<any>} items - The items to add.
    * @returns {void}
-   * @throws {Error} - Throws an error if the items are not iterable.
+   * @throws {Error} If the items aren't iterable, or are a string.
    */
   addMany(items) {
     if (
@@ -124,10 +127,10 @@ export class ChildItemService {
   }
 
   /**
-   * @param {Object} item - An item to remove from the scroller.
-   * @description This method removes an item from the scroller and notifies subscribers.
+   * Removes an item and notifies subscribers.
+   * @param {Object} item - The item to remove.
    * @returns {void}
-   * @throws {Error} - Throws an error if the item is not an object or not found in the items array.
+   * @throws {Error} If the item isn't an object.
    */
   remove(item) {
     if (typeof item !== "object" || item === null)
@@ -138,6 +141,10 @@ export class ChildItemService {
     this.#notifySubscribers();
   }
 
+  /**
+   * Removes all items and notifies subscribers.
+   * @returns {void}
+   */
   clear() {
     this.#previousItems = this.#getPreviousItems();
     this.#items = [];
@@ -146,8 +153,8 @@ export class ChildItemService {
 
   /**
    * Gets an item by its index in the items array.
-   * @param {Number} index
-   * @returns {HTMLElement}
+   * @param {Number} index - The 0-based index of the item.
+   * @returns {Object} The item at that index, or undefined if there isn't one.
    */
   getItemByIndex(index) {
     return this.#items[index];
@@ -155,14 +162,15 @@ export class ChildItemService {
 
   /**
    * Gets an item by its number (1-based index).
-   * @param {Number} number
-   * @returns {HTMLElement}
+   * @param {Number} number - The 1-based position of the item.
+   * @returns {Object} The item at that position.
+   * @throws {Error} If there are no items, or the number isn't a number, is less than 1, or is greater than the item count.
    */
   getItemByNumber(number) {
     if (
       this.#items.length === 0 ||
       typeof number !== "number" ||
-      number < 0 ||
+      number < 1 ||
       number > this.#items.length
     ) {
       throw new Error(
@@ -172,6 +180,12 @@ export class ChildItemService {
     return this.#items[number - 1];
   }
 
+  /**
+   * Gets the item before the given one, wrapping around to the last item from the first.
+   * @param {Number} currentNumber - The 1-based position of the current item.
+   * @returns {Object} The previous item.
+   * @throws {Error} If the number isn't a number from 1 to the item count.
+   */
   getPreviousItem(currentNumber) {
     if (
       typeof currentNumber !== "number" ||
@@ -189,6 +203,12 @@ export class ChildItemService {
     return this.#items[index];
   }
 
+  /**
+   * Gets the item after the given one, wrapping around to the first item from the last.
+   * @param {Number} currentNumber - The 1-based position of the current item.
+   * @returns {Object} The next item.
+   * @throws {Error} If the number isn't a number from 1 to the item count.
+   */
   getNextItem(currentNumber) {
     if (
       typeof currentNumber !== "number" ||
