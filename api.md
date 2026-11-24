@@ -3,49 +3,65 @@
 
 # auro-table
 
-The `auro-table` element supports two types of tables, either a generated table created by providing data for columns and rows via attributes, or by projecting your own custom table into the default slot of the component to be styled.
+Shows tabular data, either as a table generated from data you provide or as your own native `<table>` styled to match Auro.
 
-### Properties & Attributes
+## Key capabilities
+- **Generated table**: Set `columnHeaders` and `componentData` to build the table from data.
+- **Projected table**: Put a native `<table>` in the default slot to have it styled, including rows and cells you add or remove later.
+- **Single-line content**: Set `nowrap` to keep table content from wrapping.
 
-| Properties    | Attributes    | Modifiers | Type    | Default | Description                                                  |
-| ------------- | ------------- | --------- | ------- | ------- | ------------------------------------------------------------ |
-| columnHeaders | columnHeaders |           | array   |         | An array of strings representing the table's column headers. |
-| componentData | componentData |           | array   |         | An array of objects representing the table's data rows.      |
-| nowrap        | nowrap        |           | boolean |         | When true, prevents the table from wrapping its content.     |
+## Example
+<pre class="language-html"><code class="language-html">&lt;auro-table columnHeaders='["Day","Class"]' componentData='[{"Day":"Monday","Class":"Dance"}]'&gt;&lt;/auro-table&gt;</code></pre>
+
+### Properties and attributes
+
+| Properties    | Attributes    | Modifiers | Type                     | Default | Description                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------- | ------------- | --------- | ------------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| columnHeaders | columnheaders |           | string[]                 |         | Sets the column headers for a generated table, as an array of strings. Each header must be unique, including blank ones, because it's also the key that matches cells in `componentData`. The table is generated only when `componentData` is also set. Security: headers are inserted as HTML, without sanitization, so don't pass untrusted input, because it can run code in your page.            |
+| componentData | componentdata |           | Record<string, string>[] |         | Sets the rows of a generated table, as an array of objects. Each object is one row, with `columnHeaders` values as keys and the cell content as values, and a missing key leaves its cell empty. The table is generated only when `columnHeaders` is also set. Security: cell content is inserted as HTML, without sanitization, so don't pass untrusted input, because it can run code in your page. |
+| nowrap        | nowrap        |           | boolean                  |         | Keeps table content on a single line instead of wrapping it. Applies to both generated and projected tables.                                                                                                                                                                                                                                                                                          |
 
 ### Methods
 
-| Name     | Parameters                                                           | Return | Description                                       |
-| -------- | -------------------------------------------------------------------- | ------ | ------------------------------------------------- |
-| register | `name` (string) - The name of the element that you want to register. |        | This will register this element with the browser. |
+| Name     | Parameters                                                    | Return | Description                                              |
+| -------- | ------------------------------------------------------------- | ------ | -------------------------------------------------------- |
+| register | `name` (string) - The tag name to register the element under. |        | Registers the element with the browser under a tag name. |
 
 ### Slots
 
-| Name      | Description                                                                                                                  |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| (default) | Default slot for projecting a native `<table>` element. Only available when `columnHeaders` and `componentData` are not set. |
+| Name      | Description                                                                                                                                           |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| (default) | Holds your own native `<table>`, which the component styles. Shown only when `columnHeaders` and `componentData` aren't both set to non-empty arrays. |
+
+### CSS custom properties
+
+| Name                                    | Description                                 |
+| --------------------------------------- | ------------------------------------------- |
+| --ds-auro-table-alt-row-container-color | Background color of the even-numbered rows. |
+| --ds-auro-table-border-color            | Color of the line below the table header.   |
 <!-- AURO-GENERATED-CONTENT:END -->
 
-## Generated Table
+## Generated table
 
-In order to have the component generate your table for you, you can pass data to the `columnHeaders` and `componentData` attributes to define your column headers and cell data respectively.
+To have the component generate your table, set the `columnHeaders` and `componentData` attributes to define the column headers and the cell data.
 
-### columnHeaders
+### `columnHeaders`
 
-This attribute takes an array of column headers to use, and accepts blank strings for empty columns. It does not support duplicate values, including empty strings, as each value is used as a key to project data into the table cells via the `componentData` attribute.
+Sets the column headers, as an array of strings. Blank strings are allowed for empty columns, but duplicates aren't, including blank ones, because each header is also the key that matches cells in `componentData`.
 
-Example:
-```javascript
-["Column 1", "Column 2", "Column 3"]
-```
-
-### componentData
-
-This attribute takes an array of objects, with each object representing a row with data defined for each cell by specifying the matching column-header value.
+Security: headers are inserted as HTML, without sanitization. Don't pass untrusted input, because it can run code in your page.
 
 Example:
-```javascript
-[
+<pre class="language-javascript"><code class="language-javascript">["Column 1", "Column 2", "Column 3"]</code></pre>
+
+### `componentData`
+
+Sets the rows, as an array of objects. Each object is one row, with a key for each column header and the cell content as its value. A missing key leaves its cell empty.
+
+Security: cell content is inserted as HTML, without sanitization. Don't pass untrusted input, because it can run code in your page.
+
+Example:
+<pre class="language-javascript"><code class="language-javascript">[
   {
     "Column 1": "Column 1 Row 1 Value",
     "Column 2": "Column 2 Row 1 Value",
@@ -56,233 +72,223 @@ Example:
     "Column 2": "Column 2 Row 2 Value",
     "Column 3": "Column 3 Row 2 Value"
   }
-]
-```
+]</code></pre>
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/basic-attributes.html) -->
-  <!-- The below content is automatically added from ../apiExamples/basic-attributes.html -->
-  <auro-table 
-    columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/basic-attributes.html) -->
+<!-- The below content is automatically added from ../apiExamples/basic-attributes.html -->
+<auro-table 
+    columnHeaders='["Activity","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
     componentData='[
-      {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
-      {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-      {"": "Team meeting", "Wednesday": "10:00am" },
-      {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+      {"Activity": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
+      {"Activity": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+      {"Activity": "Team meeting", "Wednesday": "10:00am" },
+      {"Activity": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
     ]'
   >
-  </auro-table>
-  <!-- AURO-GENERATED-CONTENT:END -->
+</auro-table>
+<!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion alignRight>
-  <span slot="trigger">See code</span>
+<span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=../apiExamples/basic-attributes.html) -->
 <!-- The below code snippet is automatically added from ../apiExamples/basic-attributes.html -->
 
-```html
-<auro-table 
-  columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
+<pre class="language-html"><code class="language-html">&lt;auro-table 
+  columnHeaders='["Activity","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
   componentData='[
-    {"": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
-    {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-    {"": "Team meeting", "Wednesday": "10:00am" },
-    {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+    {"Activity": "Dance class", "Monday": "5:00pm","Wednesday": "5:00pm" },
+    {"Activity": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+    {"Activity": "Team meeting", "Wednesday": "10:00am" },
+    {"Activity": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
   ]'
->
-</auro-table>
-```
+&gt;
+&lt;/auro-table&gt;</code></pre>
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
-## Projected Table
+## Projected table
 
-For more dynamic content, you can provide your own custom HTML5 `<table>` element inside the `auro-table` tag to be projected into the default slot and styled appropriately. The `auro-table` component will add any supporting classes needed for styling. Mutations to the table, such as adding and removing columns and cells, are supported.
+For more dynamic content, put your own native `<table>` element inside the `auro-table` tag. The table is projected into the default slot and styled. The component adds the classes it needs to style your table, and it keeps styling columns and cells you add or remove later.
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/basic-slot.html) -->
-  <!-- The below content is automatically added from ../apiExamples/basic-slot.html -->
-  <auro-table>
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Monday</th>
-          <th>Tuesday</th>
-          <th>Wednesday</th>
-          <th>Thursday</th>
-          <th>Friday</th>
-          <th>Saturday</th>
-          <th>Sunday</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Dance class</td>
-          <td>5:00pm</td>
-          <td></td>
-          <td>5:00pm</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Night classes</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>7:00pm</td>
-          <td>7:00pm</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Team meeting</td>
-          <td></td>
-          <td></td>
-          <td>10:00am</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Morning workout</td>
-          <td>8:00am</td>
-          <td>8:00am</td>
-          <td>8:00am</td>
-          <td>8:00am</td>
-          <td>8:00am</td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-  </auro-table>
-  <!-- AURO-GENERATED-CONTENT:END -->
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/basic-slot.html) -->
+<!-- The below content is automatically added from ../apiExamples/basic-slot.html -->
+<auro-table>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Monday</th>
+<th>Tuesday</th>
+<th>Wednesday</th>
+<th>Thursday</th>
+<th>Friday</th>
+<th>Saturday</th>
+<th>Sunday</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dance class</td>
+<td>5:00pm</td>
+<td></td>
+<td>5:00pm</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Night classes</td>
+<td></td>
+<td></td>
+<td></td>
+<td>7:00pm</td>
+<td>7:00pm</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Team meeting</td>
+<td></td>
+<td></td>
+<td>10:00am</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Morning workout</td>
+<td>8:00am</td>
+<td>8:00am</td>
+<td>8:00am</td>
+<td>8:00am</td>
+<td>8:00am</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</auro-table>
+<!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion alignRight>
-  <span slot="trigger">See code</span>
+<span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=../apiExamples/basic-slot.html) -->
 <!-- The below code snippet is automatically added from ../apiExamples/basic-slot.html -->
 
-```html
-<auro-table>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
-        <th>Saturday</th>
-        <th>Sunday</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Dance class</td>
-        <td>5:00pm</td>
-        <td></td>
-        <td>5:00pm</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Night classes</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>7:00pm</td>
-        <td>7:00pm</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Team meeting</td>
-        <td></td>
-        <td></td>
-        <td>10:00am</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Morning workout</td>
-        <td>8:00am</td>
-        <td>8:00am</td>
-        <td>8:00am</td>
-        <td>8:00am</td>
-        <td>8:00am</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</auro-table>
-```
+<pre class="language-html"><code class="language-html">&lt;auro-table&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Activity&lt;/th&gt;
+        &lt;th&gt;Monday&lt;/th&gt;
+        &lt;th&gt;Tuesday&lt;/th&gt;
+        &lt;th&gt;Wednesday&lt;/th&gt;
+        &lt;th&gt;Thursday&lt;/th&gt;
+        &lt;th&gt;Friday&lt;/th&gt;
+        &lt;th&gt;Saturday&lt;/th&gt;
+        &lt;th&gt;Sunday&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Dance class&lt;/td&gt;
+        &lt;td&gt;5:00pm&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;5:00pm&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Night classes&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;7:00pm&lt;/td&gt;
+        &lt;td&gt;7:00pm&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Team meeting&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;10:00am&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Morning workout&lt;/td&gt;
+        &lt;td&gt;8:00am&lt;/td&gt;
+        &lt;td&gt;8:00am&lt;/td&gt;
+        &lt;td&gt;8:00am&lt;/td&gt;
+        &lt;td&gt;8:00am&lt;/td&gt;
+        &lt;td&gt;8:00am&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/auro-table&gt;</code></pre>
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
-## Property & Attribute Examples
+## Property and attribute examples
 
-### noWrap
+### `nowrap`
 
-The `nowrap` attribute, when applied, will prevent table content from word wrapping, i.e. all text content will be on a single line.
+The `nowrap` attribute keeps table content on a single line instead of wrapping it.
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/nowrap.html) -->
-  <!-- The below content is automatically added from ../apiExamples/nowrap.html -->
-  <auro-table 
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/nowrap.html) -->
+<!-- The below content is automatically added from ../apiExamples/nowrap.html -->
+<auro-table 
     nowrap
-    columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
+    columnHeaders='["Activity","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
     componentData='[
-      {"": "A very long task name that will not fit", "Monday": "5:00pm","Wednesday": "5:00pm" },
-      {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-      {"": "Team meeting", "Wednesday": "10:00am" },
-      {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+      {"Activity": "A very long task name that stays on one line", "Monday": "5:00pm","Wednesday": "5:00pm" },
+      {"Activity": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+      {"Activity": "Team meeting", "Wednesday": "10:00am" },
+      {"Activity": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
     ]'
   ></auro-table>
-  <!-- AURO-GENERATED-CONTENT:END -->
+<!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion alignRight>
-  <span slot="trigger">See code</span>
+<span slot="trigger">See code</span>
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=../apiExamples/nowrap.html) -->
 <!-- The below code snippet is automatically added from ../apiExamples/nowrap.html -->
 
-```html
-<auro-table 
+<pre class="language-html"><code class="language-html">&lt;auro-table 
   nowrap
-  columnHeaders='["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
+  columnHeaders='["Activity","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]' 
   componentData='[
-    {"": "A very long task name that will not fit", "Monday": "5:00pm","Wednesday": "5:00pm" },
-    {"": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
-    {"": "Team meeting", "Wednesday": "10:00am" },
-    {"": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
+    {"Activity": "A very long task name that stays on one line", "Monday": "5:00pm","Wednesday": "5:00pm" },
+    {"Activity": "Night classes", "Thursday": "7:00pm","Friday": "7:00pm" },
+    {"Activity": "Team meeting", "Wednesday": "10:00am" },
+    {"Activity": "Morning workout", "Monday": "8:00am", "Tuesday": "8:00am", "Wednesday": "8:00am", "Thursday": "8:00am", "Friday": "8:00am" }
   ]'
-></auro-table>
-```
+&gt;&lt;/auro-table&gt;</code></pre>
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
-## Restyle Component with CSS Variables
+## Restyle with CSS custom properties
 
-The component may be restyled by changing the values of the following token(s).
+Restyle the component by changing the values of the following tokens.
 
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../src/styles/tokens.scss) -->
 <!-- The below code snippet is automatically added from ./../src/styles/tokens.scss -->
 
-```scss
-@use "@aurodesignsystem/design-tokens/dist/themes/alaska/SCSSVariables--alaska" as v;
-
-:host {
+<pre class="language-scss"><code class="language-scss">@use "@aurodesignsystem/design-tokens/dist/themes/alaska/SCSSVariables--alaska" as v;
+&#10;:host {
   --ds-auro-table-alt-row-container-color: var(--ds-basic-color-surface-neutral-subtle, #{v.$ds-basic-color-surface-neutral-subtle});
   --ds-auro-table-border-color: var(--ds-basic-color-border-subtle, #{v.$ds-basic-color-border-subtle});
-}
-```
+}</code></pre>
 <!-- AURO-GENERATED-CONTENT:END -->
